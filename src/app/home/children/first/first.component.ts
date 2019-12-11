@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuService } from 'src/app/_services/menu.service';
 
 @Component({
   selector: 'app-first',
@@ -7,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FirstComponent implements OnInit {
 
-  constructor() { }
+  constructor(private menuService: MenuService) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log('first', this.menuService.isFirstPage.value);
+    this.menuService.isFirstPage.next(true);
+  }
 
 }

@@ -3,7 +3,8 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home/first', pathMatch: 'full' },
-  { path: 'home', loadChildren: () => import('./home/home.module').then( m => m.HomePageModule) }
+  { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomePageModule) },
+  { path: 'start', loadChildren: './start/start.module#StartPageModule' }
 ];
 
 @NgModule({
@@ -15,7 +16,7 @@ const routes: Routes = [
         useHash: true,
         scrollPositionRestoration: 'enabled'
       }
-      )
+    )
   ],
   exports: [RouterModule]
 })

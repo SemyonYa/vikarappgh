@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { IMenuItem } from '../models/i-menu-item';
-import { MenuService } from '../services/menu.service';
+import { IMenuItem } from '../_models/i-menu-item';
+import { MenuService } from '../_services/menu.service';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -8,16 +9,23 @@ import { MenuService } from '../services/menu.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
+  isVisibleMobileMenu: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  isFirst: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   menu: Set<IMenuItem> = new Set<IMenuItem>();
   constructor(private menuService: MenuService) { }
 
   ngOnInit() {
     this.menu = this.menuService.menu;
-    // this.menu
-    //   .add({ href: '/', title: 'Главная' })
-    //   .add({ href: '/home/catalog', title: 'Каталог' })
-    //   .add({ href: '/home/installing', title: 'Установка' })
-    //   .add({ href: '/home/contact', title: 'Контакты' });
+    this.isVisibleMobileMenu = this.menuService.isVisibleMobile;
+    this.isFirst = this.menuService.isFirstPage;
+  }
+
+  showMenu() {
+    this.menuService.show();
+  }
+
+  hideMenu() {
+    this.menuService.hide();
   }
 
 }

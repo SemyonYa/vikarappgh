@@ -1,1 +1,88 @@
+.menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 13px;
 
+    &-item {
+        padding: 13px;
+        cursor: pointer;
+        font-weight: 600;
+
+        &.active {
+            background-color: var(--ion-color-primary);
+            color: var(--ion-color-primary-contrast);
+            border-radius: 3px;
+        }
+    }
+}
+
+.menu-mobile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+    padding: 10vh 0;
+    background-color: rgba(255, 255, 255, .6);
+    z-index: 11;
+
+    &-item {
+        padding: 13px;
+        cursor: pointer;
+        font-weight: 600;
+        width: 100%;
+        text-align: center;
+
+        &.active {
+            background-color: var(--ion-color-primary);
+            color: var(--ion-color-primary-contrast);
+        }
+    }
+
+    &-close {
+        position: absolute;
+        bottom: 0;
+        text-align: center;
+        background-color: rgba(var(--ion-color-danger-rgb), .2);
+        color: var(--ion-color-danger-shade);
+        text-shadow: 0 0 1px rgba(0, 0, 0, .8);
+        width: 100%;
+        padding: 10px;
+        font-weight: 600;
+    }
+}
+
+.main-page-menu-btn {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    // margin: auto 50%;
+    z-index: 10;
+    // --background: transparent;
+}
+
+.not-main-page-menu-btn {
+    top: 10px;
+    left: 10px;
+}
+
+@media (max-width: 1023px) {
+    .menu {
+        display: none;
+    }
+
+    .menu-mobile {
+        display: flex;
+    }
+}

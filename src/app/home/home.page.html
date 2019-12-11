@@ -1,13 +1,20 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      VIKAR Blank
-      <a *ngFor="let menuItem of menu" [routerLink]="[menuItem.href]">{{menuItem.title}}</a>
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-  <h1>HOME HERE</h1>
+  <div class="menu">
+    <div class="menu-item" *ngFor="let menuItem of menu" [routerLink]="[menuItem.href]" routerLinkActive="active">
+      {{menuItem.title}}
+    </div>
+  </div>
+  <div class="menu-mobile" *ngIf="isVisibleMobileMenu.value">
+    <div class="menu-mobile-item" *ngFor="let menuItem of menu" [routerLink]="[menuItem.href]"
+      routerLinkActive="active" (click)="hideMenu()"> {{menuItem.title}}
+    </div>
+    <div class="menu-mobile-close" (click)="hideMenu()">
+      Закрыть <ion-icon name="close" size="small"></ion-icon>
+    </div>
+  </div>
+  <ion-button [ngClass]="{'main-page-menu-btn': isFirst.value, 'not-main-page-menu-btn': !isFirst.value}" (click)="showMenu()">
+    <ion-icon slot="start" name="menu"></ion-icon>
+    MENU {{isFirst.value}}
+  </ion-button>
   <router-outlet></router-outlet>
 </ion-content>
