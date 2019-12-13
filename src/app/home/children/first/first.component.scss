@@ -2,5 +2,50 @@ ion-content {
     --background: transparent;
     background-size: cover;
     background-position: center center;
-    background-image: url('/assets/img/bmw-03.jpg');
+    background-image: url('/assets/img/car-grey.jpg');
+}
+
+.logo-wrap {
+    position: fixed;
+    bottom: 40%;
+    width: 100%;
+    z-index: 9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    &>* {
+        flex-basis: 100%;
+        text-align: center;
+    }
+
+    .logo {
+        width: 15vw;
+        height: 15vw;
+        background-image: url('/assets/icon/logo_sq.svg');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center center;
+        animation: heart 2000ms ease-in infinite alternate;
+    }
+
+    .caption {
+        padding: 20px;
+        background-color: rgba(var(--ion-color-primary-contrast-rgb), 0.7);
+        box-shadow: 0px 0px 10px 2px rgba(0,0,0,.5)
+        
+        h1 {
+            line-height: 1;
+            margin: 0;
+        }
+        
+        h2 {
+            line-height: 1;
+            margin: 0;
+            padding: 5px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+    }
 }

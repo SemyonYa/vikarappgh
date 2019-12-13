@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW 2017 -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="210mm" height="297mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 21000 29700"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .fil3 {fill:#FEFEFE}
+    .fil1 {fill:#EBECEC}
+    .fil0 {fill:url(#id0)}
+    .fil4 {fill:url(#id1)}
+    .fil2 {fill:url(#id2)}
+   ]]>
+  </style>
+  <linearGradient id="id0" gradientUnits="userSpaceOnUse" x1="5601" y1="12849" x2="14266" y2="12849">
+   <stop offset="0" style="stop-opacity:1; stop-color:#949494"/>
+   <stop offset="1" style="stop-opacity:1; stop-color:silver"/>
+  </linearGradient>
+  <radialGradient id="id1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1.35015 -0 -0 1.35015 -3463 -4667)" cx="9891" cy="13329" r="684" fx="9891" fy="13329">
+   <stop offset="0" style="stop-opacity:1; stop-color:#90271F"/>
+   <stop offset="1" style="stop-opacity:1; stop-color:#68231C"/>
+  </radialGradient>
+  <radialGradient id="id2" gradientUnits="userSpaceOnUse" gradientTransform="matrix(1.36169 -0 -0 1.36169 -3563 -4647)" xlink:href="#id1" cx="9852" cy="12849" r="1071" fx="9852" fy="12849">
+  </radialGradient>
+ </defs>
+ <g id="Слой_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <polygon class="fil0" points="9934,8067 12100,9263 14266,10458 14266,12849 14266,15239 12100,16435 9934,17630 7767,16435 5601,15239 5601,12849 5601,10458 7767,9263 "/>
+  <polygon class="fil1" points="9934,8251 12017,9401 14100,10550 14100,12849 14100,15147 12017,16297 9934,17446 7851,16297 5768,15147 5768,12849 5768,10550 7851,9401 "/>
+  <polygon class="fil2" points="9934,8321 11985,9453 14036,10585 14036,12849 14036,15112 11985,16244 9934,17376 7883,16244 5832,15112 5832,12849 5832,10585 7883,9453 "/>
+  <polygon class="fil3" points="9934,9002 11659,9963 13384,10925 13384,12849 13384,14772 11659,15734 9934,16696 8209,15734 6484,14772 6484,12849 6484,10925 8209,9963 "/>
+  <polygon class="fil4" points="12085,10910 10352,15747 9516,15747 7783,10910 8666,10910 9937,14733 11201,10910 "/>
+ </g>
+</svg>

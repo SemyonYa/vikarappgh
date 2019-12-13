@@ -1,27 +1,39 @@
 import { Component, OnInit } from '@angular/core';
 import { IMenuItem } from '../_models/i-menu-item';
 import { MenuService } from '../_services/menu.service';
-import { BehaviorSubject } from 'rxjs';
+import { menuAnimation, menuBtnMobileAnimation, menuMobileAnimation } from '../_animations/menu.animation';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
+  animations: [menuAnimation, menuBtnMobileAnimation, menuMobileAnimation]
 })
 export class HomePage implements OnInit {
-  isVisibleMobileMenu: BehaviorSubject<boolean> = new BehaviorSubject(false);
-  isFirst: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  isVisibleMobileMenu = false;
+  isFirst = '';
   menu: Set<IMenuItem> = new Set<IMenuItem>();
   constructor(private menuService: MenuService) { }
 
   ngOnInit() {
     this.menu = this.menuService.menu;
-    this.isVisibleMobileMenu = this.menuService.isVisibleMobile;
-    this.isFirst = this.menuService.isFirstPage;
+    this.menuService.isVisibleMobile
+      .subscribe(
+        val => {
+          this.isVisibleMobileMenu = val;
+        }
+      );
+    this.menuService.isFirstPage
+      .subscribe(
+        val => {
+          this.isFirst = val ? 'first' : 'notFirst';
+        }
+      );
   }
 
   showMenu() {
     this.menuService.show();
+    console.log('show');
   }
 
   hideMenu() {

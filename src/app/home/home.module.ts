@@ -10,6 +10,7 @@ import { CatalogComponent } from './children/catalog/catalog.component';
 import { ContactComponent } from './children/contact/contact.component';
 import { InstallingComponent } from './children/installing/installing.component';
 import { HomeRoutingModule } from './home-routing.module';
+import { CartComponent } from './children/cart/cart.component';
 
 @NgModule({
   imports: [
@@ -23,7 +24,8 @@ import { HomeRoutingModule } from './home-routing.module';
     FirstComponent,
     CatalogComponent,
     ContactComponent,
-    InstallingComponent
+    InstallingComponent,
+    CartComponent
   ]
 })
 export class HomePageModule {}

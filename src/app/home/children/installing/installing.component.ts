@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuService } from 'src/app/_services/menu.service';
 
 @Component({
   selector: 'app-installing',
@@ -7,8 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InstallingComponent implements OnInit {
 
-  constructor() { }
+  constructor(private menuService: MenuService) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.menuService.isFirstPage.next(false);
+  }
 
 }

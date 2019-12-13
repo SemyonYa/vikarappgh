@@ -12,7 +12,7 @@ export class MenuService {
   isVisibleMobile: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   constructor() {
-    
+
     this.menu
       .add({ href: '/home/first', title: 'Главная' })
       .add({ href: '/home/catalog', title: 'Каталог' })
@@ -21,6 +21,7 @@ export class MenuService {
   }
   show() {
     this.isVisibleMobile.next(true);
+    console.log('show');
   }
 
   hide() {
