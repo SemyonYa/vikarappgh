@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 import { Category } from '../_models/category';
 import { GoodGroup } from '../_models/good-group';
 import { Good } from '../_models/good';
+import { InstallItem } from '../_models/install-item';
 
 @Injectable({
   providedIn: 'root'
@@ -36,6 +37,15 @@ export class DataService {
       .pipe(
         map(
           (data: any[]) => data.map(c => new Good(c.id, c.name, c.thickness, c.size, c.square, c.price, c.length, c.width))
+        )
+      );
+  }
+
+  getInstallItems() {
+    return this.http.get(environment.host + '/data2/install-items')
+      .pipe(
+        map(
+          (data: any[]) => data.map(c => new InstallItem(c.id, c.name, c.works, c.recomendations, c.as_result, c.img))
         )
       );
   }

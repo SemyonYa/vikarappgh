@@ -1,3 +1,10 @@
 <ion-content>
   <h1>Установка своими руками</h1>
+  <div class="install-list">
+    <div class="install-item" *ngFor="let installItem of installItems" [ngStyle]="{border: 'solid 1px black'}">
+      <pre>
+        {{installItem || json}}
+      </pre>
+    </div>
+  </div>
 </ion-content>
