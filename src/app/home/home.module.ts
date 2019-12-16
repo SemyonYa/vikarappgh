@@ -11,6 +11,7 @@ import { ContactComponent } from './children/contact/contact.component';
 import { InstallingComponent } from './children/installing/installing.component';
 import { HomeRoutingModule } from './home-routing.module';
 import { CartComponent } from './children/cart/cart.component';
+import { InstallingItemComponent } from './children/installing-item/installing-item.component';
 
 @NgModule({
   imports: [
@@ -25,6 +26,7 @@ import { CartComponent } from './children/cart/cart.component';
     CatalogComponent,
     ContactComponent,
     InstallingComponent,
+    InstallingItemComponent,
     CartComponent
   ]
 })

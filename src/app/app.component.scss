@@ -2,28 +2,17 @@
     outline: none;
 }
 
-/*
-    scroll
-*/
-::-webkit-scrollbar {
-    width: 7px;
-    height: 7px;
-}
+:root {
+    /**  CUSTOM  **/
+    // --ion-font-family: 'Exo 2', sans-serif;
+    // --ion-font-family: 'Lobster Two', cursive;
+    // --ion-font-family: 'Philosopher', sans-serif;
+    // --ion-font-family: 'Didact Gothic', sans-serif;
+    // --ion-font-family: 'Anonymous Pro', monospace;
+    --ion-font-family: 'Kurale', serif;
 
-::-webkit-scrollbar-button:start:decrement,
-::-webkit-scrollbar-button:end:increment {
-    width: 10px;
-    display: block;
-    background-color: rgba(218, 99, 2, 0.5);
-}
-
-::-webkit-scrollbar-track-piece {
-    background-color: rgba(218, 99, 2, 0.3);
-    width: 10px;
-}
-
-::-webkit-scrollbar-thumb:vertical,
-::-webkit-scrollbar-thumb:horizontal {
-    height: 5px;
-    background-color: rgb(218, 99, 2);
+    // --ion-font-family: 'Cormorant', serif;
+    // --ion-font-family: 'Cormorant Infant', serif;
+    // --ion-font-family: 'Cormorant SC', serif;
+    // --ion-font-family: 'Cormorant Unicase', serif;
 }

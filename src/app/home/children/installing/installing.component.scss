@@ -1,3 +1,52 @@
 ion-content {
-    padding-top: 50px;
+    --padding-top: 50px;
+    text-align: center;
+    --background: transparent;
+    background-image: url('/assets/icon/waves-05.svg');
+    background-size: cover;
+    background-position: center center;
+}
+
+ion-card {
+    width: 100%;
+    background-color: rgba(255, 255, 255, .85);
+
+    .more-link {
+        color: var(--ion-color-primary);
+        text-decoration: underline;
+        cursor: pointer;
+    }
+}
+
+ion-slides {
+    --bullet-background: var(--ion-color-primary);
+    padding: 0 5vw;
+
+    // ion-slide {
+    // }
+}
+
+.install-info {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 10px;
+
+    &-inner {
+        width: 100%;
+        max-width: 800px;
+        background-color: rgba(255,255,255,.85);
+        border-radius: 4px;
+        color: #333;
+        padding: 10px;
+        box-shadow: 0 0 5px 0 rgba(0,0,0,.4);
+
+        p {
+            border-top: solid 1px var(--ion-color-primary);
+            border-bottom: solid 1px var(--ion-color-primary);
+            padding: 10px;
+        }
+    }
 }
