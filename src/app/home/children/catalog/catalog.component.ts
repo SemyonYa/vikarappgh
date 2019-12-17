@@ -12,10 +12,12 @@ import { Good } from 'src/app/_models/good';
 })
 export class CatalogComponent implements OnInit {
   categories: Category[] = [];
+  filter: number;
   constructor(private menuService: MenuService, private dataService: DataService) { }
 
   ngOnInit() {
     this.menuService.isFirstPage.next(false);
+    this.filter = 0;
     this.dataService.getCategories()
       .subscribe(
         (data: Category[]) => {
@@ -38,6 +40,10 @@ export class CatalogComponent implements OnInit {
           this.categories = data;
         }
       );
+  }
+
+  filtering(n) {
+    this.filter = n;
   }
 
 }

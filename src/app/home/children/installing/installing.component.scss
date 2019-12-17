@@ -1,10 +1,27 @@
+.cog {
+    position: fixed;
+    top: 0;
+    left: 45vw;
+    width: 65vw;
+    height: 65vw;
+    background-image: url('/assets/icon/cog.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    transform: translate(0, -30%);
+    opacity: .9;
+    filter: drop-shadow(2px 4px 6px rgba(0,0,0,.6));
+}
 ion-content {
-    --padding-top: 50px;
+    --padding-top: 75px;
+    --padding-bottom: 50px;
     text-align: center;
     --background: transparent;
-    background-image: url('/assets/icon/waves-05.svg');
     background-size: cover;
     background-position: center center;
+    h1 {
+        font-size: 36px;
+    }
 }
 
 ion-card {

@@ -1,5 +1,7 @@
+<div class="cog"></div>
 <ion-content>
   <h1>Установка своими руками</h1>
+  <!-- <div class="title"></div> -->
   <div class="install-info">
     <div class="install-info-inner">
       <h2>Подготовка автомобиля</h2>
@@ -22,8 +24,8 @@
     <ion-slides pager="true" [options]="slideOpts">
       <ion-slide *ngFor="let installItem of installItems | async">
         <ion-card>
+          <img src="{{installItem.img}}" alt="">
           <ion-card-header>
-            <img src="{{installItem.img}}" alt="">
             <ion-card-title>{{installItem.name}}</ion-card-title>
             <ion-card-subtitle><span class="more-link" [routerLink]="['/home/installing/' + installItem.id]" routerDirection="forward"> Подробнее... </span></ion-card-subtitle>
           </ion-card-header>

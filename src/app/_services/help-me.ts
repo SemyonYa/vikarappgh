@@ -1,5 +1,11 @@
+import { environment } from 'src/environments/environment';
+
 export class HelpMe {
     static getImg(img: string = '') {
-        return img ? img : '/assets/icon/logo_sq_new.svg';
+        return img ? environment.host + '/web/images/' + img : '/assets/icon/logo_sq_new.svg';
+    }
+
+    static getImgThumb(img: string = '') {
+        return img ? environment.host + '/web/images/____' + img : '/assets/icon/logo_sq_new.svg';
     }
 }

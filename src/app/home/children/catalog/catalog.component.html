@@ -1,11 +1,13 @@
 <ion-content>
   <div class="price">
     <div class="categories">
-      <h2>Прайс</h2>
-      <div class="categories-item" *ngFor="let category of categories">{{category.name}}</div>
+      <!-- <h2>Прайс</h2> -->
+      <div class="title"></div>
+      <div class="categories-item" (click)="filtering(0)" [ngClass]="{'is-active': filter === 0}">ВСЕ</div>
+      <div class="categories-item" [ngClass]="{'is-active': category.n === filter}" (click)="filtering(category.n)" *ngFor="let category of categories">{{category.name}}</div>
     </div>
     <div class="list">
-      <div class="category" *ngFor="let category of categories">
+      <div class="category" [ngClass]="{'filter-off': category.n !== filter && filter !== 0}" *ngFor="let category of categories">
         <h3>{{category.name}}</h3>
         <div class="good-group" *ngFor="let goodGroup of category.goodGroups">
           <h4>{{goodGroup.name}}</h4>

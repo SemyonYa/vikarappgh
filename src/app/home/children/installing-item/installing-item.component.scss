@@ -1,5 +1,22 @@
+.cog {
+    position: fixed;
+    top: 0;
+    left: 45vw;
+    width: 65vw;
+    height: 65vw;
+    background-image: url('/assets/icon/cog.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    transform: translate(0, -30%);
+    opacity: .9;
+    filter: drop-shadow(2px 4px 6px rgba(0,0,0,.6));
+}
+
 ion-content {
+    --background: transparent;
     --padding-top: 50px;
+    --padding-bottom: 50px;
     --padding-start: 10px;
     --padding-end: 10px;
     text-align: center;
@@ -10,6 +27,7 @@ ion-content {
         justify-content: center;
         align-items: center;
         flex-wrap: wrap;
+        margin: 10px 0;
 
         &>* {
             flex-basis: 100%;
@@ -19,6 +37,13 @@ ion-content {
 
 ion-list {
     max-width: 800px;
+    background-color: rgba(255,255,255,.8);
+    border-radius: 5px;
+    box-shadow: 0 0 5px 0 rgba(0,0,0,.4);
+
+    ion-item {
+        --background: transparent;
+    }
 
     &-header {
         font-size: 24px;
@@ -40,10 +65,11 @@ ion-note {
         font-size: 20px;
     }
 }
+
 ion-badge {
     --color: var(--ion-color-secondary);
     --background: white;
-    box-shadow: 0 0 5px 0 rgba(0,0,0,.2);
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, .2);
     display: flex;
     justify-content: center;
     align-items: center;
