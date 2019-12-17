@@ -25,7 +25,7 @@
           <ion-card-header>
             <img src="{{installItem.img}}" alt="">
             <ion-card-title>{{installItem.name}}</ion-card-title>
-            <ion-card-subtitle><span class="more-link" [routerLink]="['/home/installing/1']" routerDirection="forward"> Подробнее... </span></ion-card-subtitle>
+            <ion-card-subtitle><span class="more-link" [routerLink]="['/home/installing/' + installItem.id]" routerDirection="forward"> Подробнее... </span></ion-card-subtitle>
           </ion-card-header>
         </ion-card>
         <h1></h1>

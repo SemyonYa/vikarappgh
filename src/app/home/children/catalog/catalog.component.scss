@@ -49,8 +49,17 @@ ion-content {
             border-spacing: 2px;
             border-collapse: separate;
 
-            td {
-                border: solid 1px var(--ion-color-tertiary);
+            thead {
+                td {
+                    background-color: var(--ion-color-secondary);
+                    color: var(--ion-color-secondary-contrast);
+                    text-align: center;
+                    font-weight: 600;
+                }
+            }
+
+            td:not(:last-child) {
+                border: solid 1px var(--ion-color-secondary);
                 border-radius: 4px;
                 padding: 4px;
 

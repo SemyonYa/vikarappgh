@@ -6,6 +6,7 @@ import { Category } from '../_models/category';
 import { GoodGroup } from '../_models/good-group';
 import { Good } from '../_models/good';
 import { InstallItem } from '../_models/install-item';
+import { InstallItemGood } from '../_models/install-item-good';
 
 @Injectable({
   providedIn: 'root'
@@ -45,7 +46,26 @@ export class DataService {
     return this.http.get(environment.host + '/data2/install-items')
       .pipe(
         map(
-          (data: any[]) => data.map(c => new InstallItem(c.id, c.name, c.works, c.recomendations, c.as_result, c.img))
+          (data: any[]) => data.map(c => new InstallItem(c.id, c.name, c.works, c.recommendations, c.as_result, c.img))
+        )
+      );
+  }
+
+  getInstallItem(id: number) {
+    return this.http.get(environment.host + '/data2/install-item?id=' + id)
+      .pipe(
+        map(
+          (ii: any) => new InstallItem(ii.id, ii.name, ii.works, ii.recommendations, ii.as_result, ii.img)
+          )
+      );
+  }
+
+  getInstallItemGoods(installItemId: number) {
+    return this.http.get(environment.host + '/data2/install-item-goods?install_item_id=' + installItemId)
+      .pipe(
+        map(
+          // tslint:disable-next-line:max-line-length
+          (data: any[]) => data.map(c => new InstallItemGood(new Good(c.good.id, c.good.name, c.good.thickness, c.good.size, c.good.square, c.good.price, c.good.length, c.good.width), c.q))
         )
       );
   }
