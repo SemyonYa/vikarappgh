@@ -1,0 +1,55 @@
+ion-content {
+    --padding-top: 76px;
+    --padding-bottom: 50px;
+    --background: transparent;
+    background-image: url('/assets/icon/waves-05.svg');
+    background-size: cover;
+    background-position: center center;
+    padding: 10px;
+}
+h2 {
+    text-align: center;
+}
+.phones-mail {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    ion-card {
+        width: 100%;
+        max-width: 500px;
+
+        ion-item {
+            cursor: pointer;
+        }
+    }
+}
+.shops {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    ion-card {
+        width: 100%;
+        max-width: 400px;
+    }
+}
+.map {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    iframe {
+        width: 50%;
+        box-shadow: 0 0 10px 0 rgba(0,0,0,.4);
+    }
+}
+
+@media (orientation: portrait) {
+    .map {
+        iframe {
+            width: 90%;
+        }
+    }
+}

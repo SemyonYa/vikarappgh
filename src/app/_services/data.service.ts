@@ -7,6 +7,7 @@ import { GoodGroup } from '../_models/good-group';
 import { Good } from '../_models/good';
 import { InstallItem } from '../_models/install-item';
 import { InstallItemGood } from '../_models/install-item-good';
+import { Shop } from '../_models/shop';
 
 @Injectable({
   providedIn: 'root'
@@ -66,6 +67,15 @@ export class DataService {
         map(
           // tslint:disable-next-line:max-line-length
           (data: any[]) => data.map(c => new InstallItemGood(new Good(c.good.id, c.good.name, c.good.thickness, c.good.size, c.good.square, c.good.price, c.good.length, c.good.width), c.q))
+        )
+      );
+  }
+
+  getShops() {
+    return this.http.get(environment.host + '/data2/shops')
+      .pipe(
+        map(
+          (data: any[]) => data.map(c => new Shop(c.id, c.title, c.address, c.phone, c.phone2))
         )
       );
   }

@@ -7,7 +7,7 @@
         <ion-list-header>
           <ion-label>Материалы</ion-label>
         </ion-list-header>
-        <ion-item *ngFor="let iiGood of installItem.goods">
+        <ion-item *ngFor="let iiGood of installItem.goods; let last = last" lines="{{last ? 'none' : 'full'}}">
           <ion-thumbnail slot="start">
             <ion-icon name="document" size="large" color="secondary"></ion-icon>
             <!-- <img src="{{iiGood.good.img}}" alt="item"> -->
@@ -54,8 +54,8 @@
         <ion-item *ngFor="let rec of installItem.recommendations; let i = index; let last = last"
           lines="{{last ? 'none' : 'full'}}">
           <span> {{rec}} </span>
-          <ion-note color="primary" slot="start"> 
-              <ion-icon name="information-circle-outline" [ngStyle]="{fontSize: '24px'}"></ion-icon>  
+          <ion-note color="primary" slot="start">
+            <ion-icon name="information-circle-outline" [ngStyle]="{fontSize: '24px'}"></ion-icon>
           </ion-note>
           <ion-label></ion-label>
         </ion-item>
@@ -63,20 +63,20 @@
     </div>
 
     <div class="wrap">
-        <ion-list *ngIf="installItem?.results.length > 0;else loading">
-          <ion-list-header>
-            <ion-label>Как результат</ion-label>
-          </ion-list-header>
-          <ion-item *ngFor="let res of installItem.results; let i = index; let last = last"
-            lines="{{last ? 'none' : 'full'}}">
-            <span> {{res}} </span>
-            <ion-note color="primary" slot="start"> 
-              <ion-icon size="large" name="done-all"></ion-icon> 
-            </ion-note>
-            <ion-label></ion-label>
-          </ion-item>
-        </ion-list>
-      </div>
+      <ion-list *ngIf="installItem?.results.length > 0;else loading">
+        <ion-list-header>
+          <ion-label>Как результат</ion-label>
+        </ion-list-header>
+        <ion-item *ngFor="let res of installItem.results; let i = index; let last = last"
+          lines="{{last ? 'none' : 'full'}}">
+          <span> {{res}} </span>
+          <ion-note color="primary" slot="start">
+            <ion-icon size="large" name="done-all"></ion-icon>
+          </ion-note>
+          <ion-label></ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
 
     <div class="group-to-cart">
       <ion-button size="large" [ngClass]="{'group-to-cart-btn': true}" (click)="groupToCart()">
