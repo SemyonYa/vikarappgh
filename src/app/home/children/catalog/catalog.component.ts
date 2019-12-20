@@ -4,6 +4,7 @@ import { Category } from 'src/app/_models/category';
 import { DataService } from 'src/app/_services/data.service';
 import { GoodGroup } from 'src/app/_models/good-group';
 import { Good } from 'src/app/_models/good';
+import { CartService } from 'src/app/_services/cart.service';
 
 @Component({
   selector: 'app-catalog',
@@ -13,7 +14,7 @@ import { Good } from 'src/app/_models/good';
 export class CatalogComponent implements OnInit {
   categories: Category[] = [];
   filter: number;
-  constructor(private menuService: MenuService, private dataService: DataService) { }
+  constructor(private menuService: MenuService, private dataService: DataService, private cartService: CartService) { }
 
   ngOnInit() {
     this.menuService.isFirstPage.next(false);
@@ -45,5 +46,20 @@ export class CatalogComponent implements OnInit {
   filtering(n) {
     this.filter = n;
   }
+
+  cartPlus(id: string) {
+    this.cartService.plus(Number.parseInt(id, 10));
+  }
+
+  cartMinus(e: MouseEvent) {
+    const id: number = e.target.id;
+    const sib = e.target.nextSibling;
+    this.cartService.minus(id, sib);
+    // obj.target.nextSibling.innerText = Number.parseInt(currentVal, 10) - 1;
+    // console.log('obj', typeof obj.target, obj);
+    // console.log('objT', typeof obj.target.nextElementSibling, obj.target.nextElementSibling);
+    // this.cartService.minus(Number.parseInt(id, 10));
+  }
+
 
 }
