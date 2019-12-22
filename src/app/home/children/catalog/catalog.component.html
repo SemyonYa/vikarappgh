@@ -35,8 +35,8 @@
                 <td>
                   <div class="price-tocart">
                     <div class="price-tocart-minus" data-id="{{good.id}}" (click)="cartMinus($event)">-</div>
-                    <div class="price-tocart-value">12</div>
-                    <div class="price-tocart-plus" (click)="cartPlus(good.id)">+</div>
+                    <div class="price-tocart-value">{{good.quantity}}</div>
+                    <div class="price-tocart-plus" data-id="{{good.id}}" (click)="cartPlus($event)">+</div>
                   </div>
                 </td>
               </tr>
@@ -58,7 +58,13 @@
                 <td>{{good.width}}</td>
                 <td>{{good.length}}</td>
                 <td>{{good.price}}</td>
-                <td>| + |||| - |</td>
+                <td>
+                  <div class="price-tocart">
+                    <div class="price-tocart-minus" data-id="{{good.id}}" (click)="cartMinus($event)">-</div>
+                    <div class="price-tocart-value">{{good.quantity}}</div>
+                    <div class="price-tocart-plus" data-id="{{good.id}}" (click)="cartPlus($event)">+</div>
+                  </div>
+                </td>
               </tr>
             </tbody>
           </table>

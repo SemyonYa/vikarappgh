@@ -16,7 +16,7 @@ export class CartComponent implements OnInit {
   }
 
   plus(id) {
-    this.cartService.plus(Number.parseInt(id, 10));
+    // this.cartService.plus(Number.parseInt(id, 10));
   }
 
 }

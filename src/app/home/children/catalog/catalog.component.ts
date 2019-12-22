@@ -30,6 +30,13 @@ export class CatalogComponent implements OnInit {
                     this.dataService.getGoods(gg.id)
                       .subscribe(
                         (data3: Good[]) => {
+                          const cart = this.cartService.getCart();
+                          data3.forEach(good => {
+                            const item = cart.find(i => i.id === good.id);
+                            if (item !== undefined) {
+                              good.setQuantity(item.quantity);
+                            }
+                          });
                           gg.fillGoods(data3);
                         }
                       );
@@ -47,19 +54,13 @@ export class CatalogComponent implements OnInit {
     this.filter = n;
   }
 
-  cartPlus(id: string) {
-    this.cartService.plus(Number.parseInt(id, 10));
-  }
-
+  
   cartMinus(e: MouseEvent) {
-    const id: number = e.target.id;
-    const sib = e.target.nextSibling;
-    this.cartService.minus(id, sib);
-    // obj.target.nextSibling.innerText = Number.parseInt(currentVal, 10) - 1;
-    // console.log('obj', typeof obj.target, obj);
-    // console.log('objT', typeof obj.target.nextElementSibling, obj.target.nextElementSibling);
-    // this.cartService.minus(Number.parseInt(id, 10));
+    this.cartService.minus(e);
   }
-
-
+  
+  cartPlus(e: MouseEvent) {
+    this.cartService.plus(e);
+  }
+  
 }

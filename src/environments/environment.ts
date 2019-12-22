@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  host: 'http://mishadatagh:100'
+  host: 'http://mishadatagh'
 };
 
 /*
