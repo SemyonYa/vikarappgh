@@ -24,4 +24,8 @@ export class Good {
     setQuantity(q: number) {
         this.quantity = q;
     }
+
+    getSum(): number {
+        return this.price * this.quantity;
+    }
 }

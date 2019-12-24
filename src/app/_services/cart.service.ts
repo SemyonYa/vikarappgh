@@ -32,9 +32,9 @@ export class CartService {
   minus(e: MouseEvent) {
     const target = e.target as HTMLElement;
     const id = Number.parseInt(target.id, 10);
-    console.log('id', id)
+    console.log('id', id);
     let sib = target.nextSibling as HTMLElement;
-    console.log('val', sib.innerText)
+    console.log('val', sib.innerText);
     const cart = this.getCart();
     const currentGood: ICartItem = cart.find(i => i.id === id);
     if (currentGood !== undefined) {
@@ -54,9 +54,9 @@ export class CartService {
   plus(e: MouseEvent) {
     const target = e.target as HTMLElement;
     const id = Number.parseInt(target.id, 10);
-    console.log('id', id)
+    console.log('id', id);
     let sib = target.previousSibling as HTMLElement;
-    console.log('val', sib.innerText)
+    console.log('val', sib.innerText);
     const cart = this.getCart();
     const currentGood: ICartItem = cart.find(i => i.id === id);
     if (currentGood === undefined) {
@@ -69,9 +69,5 @@ export class CartService {
       sib.innerText = currentGood.quantity.toString();
     }
   }
-
-change(obj, val) {
-  obj.innerText = 123;
-}
 
 }

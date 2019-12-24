@@ -43,6 +43,15 @@ export class DataService {
       );
   }
 
+  getGood(id: number) {
+    return this.http.get(environment.host + '/data2/good?id=' + id)
+      .pipe(
+        map(
+          (c: any) => new Good(c.id, c.name, c.thickness, c.size, c.square, c.price, c.length, c.width)
+        )
+      );
+  }
+
   getInstallItems() {
     return this.http.get(environment.host + '/data2/install-items')
       .pipe(
@@ -57,7 +66,7 @@ export class DataService {
       .pipe(
         map(
           (ii: any) => new InstallItem(ii.id, ii.name, ii.works, ii.recommendations, ii.as_result, ii.img)
-          )
+        )
       );
   }
 

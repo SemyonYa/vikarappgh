@@ -1,3 +1,63 @@
-<p>
-  cart works!
-</p>
+<ion-content>
+  <div class="wrap">
+    <div class="wrap-inner">
+      <h2 text-center>Корзина</h2>
+      <div class="good-list" *ngIf="goods.length > 0;else emrtyCart">
+        <table>
+          <thead>
+            <tr>
+              <td>№</td>
+              <td>Наименование</td>
+              <td>Количество</td>
+              <td>Цена</td>
+              <td>Стоимость</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let good of goods; let i = index">
+              <td>{{i}}</td>
+              <td>{{good.name}}</td>
+              <td>
+                <div class="price-tocart">
+                  <div class="price-tocart-minus" data-id="{{good.id}}" (click)="cartMinus($event)">-</div>
+                  <div class="price-tocart-value">{{good.quantity}}</div>
+                  <div class="price-tocart-plus" data-id="{{good.id}}" (click)="cartPlus($event)">+</div>
+                </div>
+              </td>
+              <td>{{good.price}} руб.</td>
+              <td>{{good.getSum()}} руб.</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="4">Итого</td>
+              <td>{{sum}} руб.</td>
+            </tr>
+          </tfoot>
+        </table>
+
+        <ion-toolbar>
+          <ion-buttons slot="start">
+            <ion-button (click)="clear()" color="danger" fill="outline">
+              <ion-icon slot="start" name="trash"></ion-icon>
+              Очистить корзину
+            </ion-button>
+          </ion-buttons>
+          <!-- <ion-title>Title</ion-title> -->
+          <ion-buttons slot="end">
+            <ion-button (click)="submit()" color="primary" fill="outline">
+              <ion-icon slot="start" name="done-all"></ion-icon>
+              Подьвердить заказ
+            </ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<ng-template #emrtyCart>
+  <div class="alert alert-info">
+    Нет товаров!
+  </div>
+</ng-template>

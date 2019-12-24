@@ -44,7 +44,7 @@ export class CatalogComponent implements OnInit {
                   c.fillGoodGroups(data2);
                 }
               );
-          };
+          }
           this.categories = data;
         }
       );
@@ -54,13 +54,13 @@ export class CatalogComponent implements OnInit {
     this.filter = n;
   }
 
-  
+
   cartMinus(e: MouseEvent) {
     this.cartService.minus(e);
   }
-  
+
   cartPlus(e: MouseEvent) {
     this.cartService.plus(e);
   }
-  
+
 }
