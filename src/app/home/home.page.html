@@ -22,6 +22,9 @@
     MENU
   </ion-button>
 </div>
+<div class="menu-mobile-btn-wrap" [@menuAnimation]="isFirst">
+  <ion-icon size="large" slot="icon-only" name="menu" color="primary" (click)="showMenu()"></ion-icon>
+</div>
 <div class="cart" [routerLink]="['/home/cart']">
   <ion-icon name="cart"></ion-icon> 
   <span class="counter">{{cart?.value.length}}</span>
