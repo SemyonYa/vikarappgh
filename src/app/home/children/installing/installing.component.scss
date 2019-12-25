@@ -67,3 +67,43 @@ ion-slides {
         }
     }
 }
+
+.size10000 {
+    display: block;
+}
+
+.size1024 {
+    display: none;
+}
+
+.size650 {
+    display: none;
+}
+
+@media (max-width: 1024px) {
+    .size10000 {
+        display: none;
+    }
+    
+    .size1024 {
+        display: block;
+    }
+    
+    .size650 {
+        display: none;
+    }
+}
+
+@media (max-width: 650px) {
+    .size10000 {
+        display: none;
+    }
+    
+    .size1024 {
+        display: none;
+    }
+    
+    .size650 {
+        display: block;
+    }
+}

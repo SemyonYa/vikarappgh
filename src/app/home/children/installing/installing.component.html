@@ -21,7 +21,7 @@
     </div>
   </div>
   <div class="install-list">
-    <ion-slides pager="true" [options]="slideOpts">
+    <ion-slides class="size10000" pager="true" [options]="{slidesPerView: 3}">
       <ion-slide *ngFor="let installItem of installItems | async">
         <ion-card>
           <img src="{{installItem.img}}" alt="">
@@ -33,6 +33,30 @@
         <h1></h1>
       </ion-slide>
     </ion-slides>
+    <ion-slides class="size1024" pager="true" [options]="{slidesPerView: 2}">
+        <ion-slide *ngFor="let installItem of installItems | async">
+          <ion-card>
+            <img src="{{installItem.img}}" alt="">
+            <ion-card-header>
+              <ion-card-title>{{installItem.name}}</ion-card-title>
+              <ion-card-subtitle><span class="more-link" [routerLink]="['/home/installing/' + installItem.id]" routerDirection="forward"> Подробнее... </span></ion-card-subtitle>
+            </ion-card-header>
+          </ion-card>
+          <h1></h1>
+        </ion-slide>
+      </ion-slides>
+      <ion-slides class="size650" pager="true" [options]="{slidesPerView: 1}">
+          <ion-slide *ngFor="let installItem of installItems | async">
+            <ion-card>
+              <img src="{{installItem.img}}" alt="">
+              <ion-card-header>
+                <ion-card-title>{{installItem.name}}</ion-card-title>
+                <ion-card-subtitle><span class="more-link" [routerLink]="['/home/installing/' + installItem.id]" routerDirection="forward"> Подробнее... </span></ion-card-subtitle>
+              </ion-card-header>
+            </ion-card>
+            <h1></h1>
+          </ion-slide>
+        </ion-slides>
   </div>
   <div class="install-info">
     <div class="install-info-inner">
