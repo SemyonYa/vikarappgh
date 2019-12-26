@@ -1,5 +1,4 @@
-<ion-content >
-  <!-- <div class="back-image"></div> -->
+<ion-content>
   <router-outlet></router-outlet>
 </ion-content>
 
@@ -26,6 +25,6 @@
   <ion-icon size="large" slot="icon-only" name="menu" color="primary" (click)="showMenu()"></ion-icon>
 </div>
 <div class="cart" [routerLink]="['/home/cart']">
-  <ion-icon name="cart"></ion-icon> 
+  <ion-icon name="cart"></ion-icon>
   <span class="counter">{{cart?.value.length}}</span>
 </div>
