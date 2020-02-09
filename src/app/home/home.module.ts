@@ -12,6 +12,7 @@ import { InstallingComponent } from './children/installing/installing.component'
 import { HomeRoutingModule } from './home-routing.module';
 import { CartComponent } from './children/cart/cart.component';
 import { InstallingItemComponent } from './children/installing-item/installing-item.component';
+import { DescriptionComponent } from './children/description/description.component';
 
 @NgModule({
   imports: [
@@ -25,6 +26,7 @@ import { InstallingItemComponent } from './children/installing-item/installing-i
     FirstComponent,
     CatalogComponent,
     ContactComponent,
+    DescriptionComponent,
     InstallingComponent,
     InstallingItemComponent,
     CartComponent

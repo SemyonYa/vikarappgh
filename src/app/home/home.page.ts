@@ -14,7 +14,7 @@ import { ICartItem } from '../_models/i-cart-item';
 })
 export class HomePage implements OnInit {
   isVisibleMobileMenu = false;
-  isFirst = '';
+  isFirst = true;
   menu: Set<IMenuItem> = new Set<IMenuItem>();
   cart: BehaviorSubject<ICartItem[]>;
   constructor(private menuService: MenuService, private cartService: CartService) { }
@@ -22,7 +22,7 @@ export class HomePage implements OnInit {
   ngOnInit() {
     this.cartService.initCart();
     this.cart = this.cartService.cart$;
-    console.log('cart', this.cart.value.length);
+    // console.log('cart', this.cart.value.length);
     this.menu = this.menuService.menu;
     this.menuService.isVisibleMobile
       .subscribe(
@@ -33,7 +33,7 @@ export class HomePage implements OnInit {
     this.menuService.isFirstPage
       .subscribe(
         val => {
-          this.isFirst = val ? 'first' : 'notFirst';
+          this.isFirst = val;
         }
       );
   }

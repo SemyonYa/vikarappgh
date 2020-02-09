@@ -8,13 +8,15 @@ import { Good } from '../_models/good';
 import { InstallItem } from '../_models/install-item';
 import { InstallItemGood } from '../_models/install-item-good';
 import { Shop } from '../_models/shop';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
-
   constructor(private http: HttpClient) { }
+
+  installItems: BehaviorSubject<InstallItem[]> = new BehaviorSubject<InstallItem[]>([]);
 
   getCategories() {
     return this.http.get(environment.host + '/data2/categories')
@@ -53,11 +55,16 @@ export class DataService {
   }
 
   getInstallItems() {
-    return this.http.get(environment.host + '/data2/install-items')
+    this.http.get(environment.host + '/data2/install-items')
       .pipe(
         map(
           (data: any[]) => data.map(c => new InstallItem(c.id, c.name, c.works, c.recommendations, c.as_result, c.img))
         )
+      )
+      .subscribe(
+        (data: InstallItem[]) => {
+          this.installItems.next(data);
+        }
       );
   }
 

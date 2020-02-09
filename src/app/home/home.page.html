@@ -15,7 +15,7 @@
     Закрыть <ion-icon name="close" size="small"></ion-icon>
   </div>
 </div>
-<div class="menu-btn-wrap" [@menuBtnMobileAnimation]="isFirst">
+<div class="menu-btn-wrap" @menuBtnMobileAnimation *ngIf="isFirst">
   <ion-button size="large" [ngClass]="{'menu-btn': true}" (click)="showMenu()">
     <ion-icon slot="icon-only" name="menu"></ion-icon>
     MENU

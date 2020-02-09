@@ -38,9 +38,6 @@ ion-card {
 ion-slides {
     --bullet-background: var(--ion-color-primary);
     padding: 0 5vw;
-
-    // ion-slide {
-    // }
 }
 
 .install-info {
@@ -105,5 +102,11 @@ ion-slides {
     
     .size650 {
         display: block;
+    }
+}
+
+@media (orientation: portrait) {
+    ion-slides {
+        padding: 0 8vw;
     }
 }

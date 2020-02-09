@@ -23,8 +23,8 @@
 
     .counter {
         position: absolute;
-        color: var(--ion-color-secondary);
-        font-size: 26px;
+        color: var(--ion-color-primary-contrast);
+        font-size: 20px;
         font-weight: 600;
         width: 20px;
         height: 20px;
@@ -32,7 +32,7 @@
         line-height: 1;
         border-radius: 50%;
         transform: translate(-20px, -10px);
-        text-shadow: 0 0 4px white;
+        text-shadow: 1px -1px 0px var(--ion-color-secondary), -1px 1px 0px var(--ion-color-secondary), 1px 1px 0px var(--ion-color-secondary), -1px -1px 0px var(--ion-color-secondary);
     }
 }
 
@@ -166,7 +166,7 @@
 }
 
 @media (orientation: portrait),
-(max-width: 767px) {
+(max-width: 1023px) {
 
     .menu-mobile-btn-wrap {
         position: fixed;

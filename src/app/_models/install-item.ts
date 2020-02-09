@@ -1,5 +1,6 @@
 import { HelpMe } from '../_services/help-me';
 import { InstallItemGood } from './install-item-good';
+import { ICartItem } from './i-cart-item';
 
 export class InstallItem {
     id: number;
@@ -9,6 +10,7 @@ export class InstallItem {
     results: string[];
     img: string;
     goods: InstallItemGood[];
+    cartItems: ICartItem[];
 
     constructor(id: string, name: string, works: string, recommendations: string, asResult: string, img: string = '') {
         this.id = Number.parseInt(id, 10);
@@ -18,9 +20,13 @@ export class InstallItem {
         this.results = asResult ? asResult.split(';;') : [];
         this.img = HelpMe.getImg(img);
         this.goods = [];
+        this.cartItems = [];
     }
 
     fillGoods(goods: InstallItemGood[]) {
         this.goods = goods;
+        for (const iiGood of goods) {
+            this.cartItems.push({ id: iiGood.good.id, quantity: iiGood.quantity})
+        }
     }
 }

@@ -9,10 +9,10 @@ export class Category {
     img: string;
     goodGroups: GoodGroup[];
 
-    constructor(id: string, name: string, desdcription: string, n: string, img: string = '') {
+    constructor(id: string, name: string, description: string, n: string, img: string = '') {
         this.id = Number.parseInt(id);
         this.name = name;
-        this.description = this.description;
+        this.description = description;
         this.n = Number.parseInt(n);
         this.img = HelpMe.getImg(img);
         this.goodGroups = [];

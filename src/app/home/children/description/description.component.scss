@@ -1,0 +1,49 @@
+ion-content {
+    --padding-top: 75px;
+    --padding-bottom: 50px;
+    text-align: center;
+    --background: transparent;
+    
+    h2 {
+        flex-basis: 100%;
+    }
+
+    .categories {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    ion-card {
+        width: 30%;
+        margin: 10px;
+
+        img {
+            padding: 6px;
+        }
+
+        h6 {
+            color: var(--ion-color-primary);
+            cursor: pointer;
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    ion-content {
+        --padding-top: 40px;
+        ion-card {
+            width: 45%;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    ion-content {
+        ion-card {
+            width: 80%;
+        }
+    }
+}

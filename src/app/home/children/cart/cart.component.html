@@ -15,7 +15,7 @@
           </thead>
           <tbody>
             <tr *ngFor="let good of goods; let i = index">
-              <td>{{i}}</td>
+              <td>{{i + 1}}</td>
               <td>{{good.name}}</td>
               <td>
                 <div class="price-tocart">
@@ -43,7 +43,6 @@
               Очистить корзину
             </ion-button>
           </ion-buttons>
-          <!-- <ion-title>Title</ion-title> -->
           <ion-buttons slot="end">
             <ion-button (click)="submit()" color="primary" fill="outline">
               <ion-icon slot="start" name="done-all"></ion-icon>

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MenuService } from 'src/app/_services/menu.service';
 import { InstallItem } from 'src/app/_models/install-item';
 import { DataService } from 'src/app/_services/data.service';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-installing',
@@ -20,12 +20,13 @@ export class InstallingComponent implements OnInit {
       slideShadows: true,
     },
   };
-  installItems = new Observable<InstallItem[]>();
+  installItems = new BehaviorSubject<InstallItem[]>([]);
   constructor(private menuService: MenuService, private dataService: DataService) { }
 
   ngOnInit() {
     this.menuService.isFirstPage.next(false);
-    this.installItems = this.dataService.getInstallItems();
+    this.dataService.getInstallItems();
+    this.installItems = this.dataService.installItems;
   }
 
 }

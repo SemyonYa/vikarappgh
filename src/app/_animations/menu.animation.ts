@@ -2,17 +2,33 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
 
 export const menuAnimation =
     trigger('menuAnimation', [
-        state('first', style({
-            transform: 'translateY(-20vh)',
-            opacity: 0
-        })),
-        state('notFirst', style({
-            transform: 'translateY(0)',
-            opacity: 1
-        })),
-        transition('first => notFirst', animate('.4s .2s ease-out')),
-        transition('notFirst => first', animate('.6s .0s ease-out'))
+        transition(':enter', [
+            style({
+                transform: 'translateY(-20vh)',
+                opacity: 0
+            }),
+            animate('0.2s',
+                style({ transform: '*', }))
+        ]),
+        transition(':leave', [
+            style({ transform: '*' }),
+            animate('0.2s',
+                style({ transform: 'scale(0)', }))
+        ])
     ]);
+// export const menuAnimation =
+//     trigger('menuAnimation', [
+//         state('first', style({
+//             transform: 'translateY(-20vh)',
+//             opacity: 0
+//         })),
+//         state('notFirst', style({
+//             transform: 'translateY(0)',
+//             opacity: 1
+//         })),
+//         transition('first => notFirst', animate('.4s .2s ease-out')),
+//         transition('notFirst => first', animate('.6s .0s ease-out'))
+//     ]);
 
 export const menuBtnMobileAnimation =
     trigger('menuBtnMobileAnimation', [

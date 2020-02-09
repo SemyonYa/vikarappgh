@@ -11,6 +11,9 @@
       <div class="category" [ngClass]="{'filter-off': category.n !== filter && filter !== 0}"
         *ngFor="let category of categories">
         <h3>{{category.name}}</h3>
+        <p class="category-img">
+          <img src="{{category.img}}" alt="" *ngIf="category.img">
+        </p>
         <div class="good-group" *ngFor="let goodGroup of category.goodGroups">
           <h4>{{goodGroup.name}}</h4>
           <hr>
@@ -22,7 +25,9 @@
                 <td>Размер листа</td>
                 <td>Площадь листа</td>
                 <td>Цена</td>
-                <td>В корзину</td>
+                <td>
+                  <ion-icon name="cart"></ion-icon>
+                </td>
               </tr>
             </thead>
             <tbody>

@@ -3,8 +3,10 @@ import { MenuService } from 'src/app/_services/menu.service';
 import { DataService } from 'src/app/_services/data.service';
 import { InstallItem } from 'src/app/_models/install-item';
 import { ActivatedRoute } from '@angular/router';
-import { Good } from 'src/app/_models/good';
 import { InstallItemGood } from 'src/app/_models/install-item-good';
+import { AlertController } from '@ionic/angular';
+import { CartService } from 'src/app/_services/cart.service';
+import { ICartItem } from '../../../_models/i-cart-item';
 
 @Component({
   selector: 'app-installing-item',
@@ -14,7 +16,8 @@ import { InstallItemGood } from 'src/app/_models/install-item-good';
 export class InstallingItemComponent implements OnInit {
   id: number;
   installItem: InstallItem;
-  constructor(private menuService: MenuService, private dataService: DataService, private activatedRoute: ActivatedRoute) { }
+  cartItems: ICartItem[] = [];
+  constructor(private menuService: MenuService, private dataService: DataService, private activatedRoute: ActivatedRoute, private alertController: AlertController, private cartService: CartService) { }
 
   ngOnInit() {
     this.id = this.activatedRoute.snapshot.params.id;
@@ -33,8 +36,25 @@ export class InstallingItemComponent implements OnInit {
       );
   }
 
-  groupToCart() {
-    confirm('Добавить?');
+  async groupToCart() {
+    const alert = await this.alertController.create({
+      header: 'Действительно добавить группу товаров в корзину?',
+      message: 'Ранее добавленные товары будут удалены из корзины.',
+      buttons: [
+        {
+          text: 'Отменить',
+          role: 'cancel',
+          cssClass: 'text-center',
+        }, {
+          text: 'Добавить',
+          handler: () => {
+            this.cartService.groupToCart(this.installItem.cartItems);
+          }
+        }
+      ]
+    });
+
+    await alert.present();
   }
 
 }
