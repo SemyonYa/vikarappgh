@@ -15,6 +15,7 @@ export class GoodGroup {
         this.description = description;
         this.thicknessOf = thickness_of;
         this.img = HelpMe.getImg(img);
+        this.goods = [];
     }
 
     fillGoods(goods: Good[]) {

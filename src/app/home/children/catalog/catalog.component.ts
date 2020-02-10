@@ -5,6 +5,7 @@ import { DataService } from 'src/app/_services/data.service';
 import { GoodGroup } from 'src/app/_models/good-group';
 import { Good } from 'src/app/_models/good';
 import { CartService } from 'src/app/_services/cart.service';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-catalog',
@@ -13,10 +14,17 @@ import { CartService } from 'src/app/_services/cart.service';
 })
 export class CatalogComponent implements OnInit {
   categories: Category[] = [];
+  categories$ = new BehaviorSubject<Category[]>([]);
   filter: number;
   constructor(private menuService: MenuService, private dataService: DataService, private cartService: CartService) { }
 
   ngOnInit() {
+    this.categories$ = this.dataService.categories$;
+    this.categories$.subscribe(
+      (cs) => {
+        console.log("TCL: CatalogComponent -> ngOnInit -> cs", cs)
+      }
+    );
     this.menuService.isFirstPage.next(false);
     this.filter = 0;
     this.dataService.getCategories()

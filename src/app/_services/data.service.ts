@@ -15,7 +15,34 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class DataService {
   constructor(private http: HttpClient) { }
+  categories$ = new BehaviorSubject<Category[]>([]);
 
+  getFull() {
+    this.http.get(environment.host + '/data2/full')
+      .subscribe(
+        (data: any[]) => {
+          let categories: Category[] = [];
+          data
+            .forEach(c => {
+              let category = new Category(c.id, c.name, c.description, c.n, c.img);
+              (c.good_groups as any[])
+                .forEach(gg => {
+                  let goodGroup = new GoodGroup(gg.id, gg.name, gg.description, gg.thickness_of, gg.img);
+                  (gg.goods as any[])
+                    .forEach(g => {
+                      const good = new Good(g.id, g.name, g.thickness, g.size, g.square, g.price, g.length, g.width);
+                      goodGroup.goods.push(good);
+                    });
+                  category.goodGroups.push(goodGroup);
+                });
+              categories.push(category);
+            });
+          this.categories$.next(categories);
+        }
+      );
+  }
+
+  // OLD
   installItems: BehaviorSubject<InstallItem[]> = new BehaviorSubject<InstallItem[]>([]);
 
   getCategories() {

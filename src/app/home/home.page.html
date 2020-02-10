@@ -2,11 +2,12 @@
   <router-outlet></router-outlet>
 </ion-content>
 
-<div class="menu" [@menuAnimation]="isFirst">
+<div class="menu" @menuAnimation *ngIf="!isFirst">
   <div class="menu-item" *ngFor="let menuItem of menu" [routerLink]="[menuItem.href]" routerLinkActive="active">
     {{menuItem.title}}
   </div>
 </div>
+
 <div class="menu-mobile" *ngIf="isVisibleMobileMenu" [@menuMobileAnimation]="isVisibleMobileMenu">
   <div class="menu-mobile-item" *ngFor="let menuItem of menu" [routerLink]="[menuItem.href]" routerLinkActive="active"
     (click)="hideMenu()"> {{menuItem.title}}
@@ -15,15 +16,18 @@
     Закрыть <ion-icon name="close" size="small"></ion-icon>
   </div>
 </div>
+
 <div class="menu-btn-wrap" @menuBtnMobileAnimation *ngIf="isFirst">
   <ion-button size="large" [ngClass]="{'menu-btn': true}" (click)="showMenu()">
     <ion-icon slot="icon-only" name="menu"></ion-icon>
     MENU
   </ion-button>
 </div>
-<div class="menu-mobile-btn-wrap" [@menuAnimation]="isFirst">
+
+<div class="menu-mobile-btn-wrap" @menuAnimation *ngIf="!isFirst">
   <ion-icon size="large" slot="icon-only" name="menu" color="primary" (click)="showMenu()"></ion-icon>
 </div>
+
 <div class="cart" [routerLink]="['/home/cart']">
   <ion-icon name="cart"></ion-icon>
   <span class="counter">{{cart?.value.length}}</span>

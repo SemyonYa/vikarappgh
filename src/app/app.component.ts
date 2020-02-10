@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Router, NavigationEnd } from '@angular/router';
 import { MenuService } from './_services/menu.service';
+import { DataService } from './_services/data.service';
 
 @Component({
   selector: 'app-root',
@@ -19,13 +20,15 @@ export class AppComponent {
     private statusBar: StatusBar,
     private router: Router,
     private modalController: ModalController,
-    private menuService: MenuService
+    private menuService: MenuService,
+    private dataService: DataService
   ) {
     this.initializeApp();
   }
 
   initializeApp() {
     this.platform.ready().then(() => {
+      this.dataService.getFull();
       this.statusBar.styleDefault();
       this.splashScreen.hide();
       this.router.events
