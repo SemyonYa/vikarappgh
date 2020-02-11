@@ -11,12 +11,10 @@ import { Observable } from 'rxjs';
 })
 export class ContactComponent implements OnInit {
   shops = new Observable<Shop[]>();
-  constructor(private menuService: MenuService, private dataService: DataService) { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
     this.shops = this.dataService.getShops();
-    console.log('contact', this.menuService.isFirstPage.value);
-    this.menuService.isFirstPage.next(false);
   }
 
   call(ph) {

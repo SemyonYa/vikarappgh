@@ -17,11 +17,10 @@ export class InstallingItemComponent implements OnInit {
   id: number;
   installItem: InstallItem;
   cartItems: ICartItem[] = [];
-  constructor(private menuService: MenuService, private dataService: DataService, private activatedRoute: ActivatedRoute, private alertController: AlertController, private cartService: CartService) { }
+  constructor(private dataService: DataService, private activatedRoute: ActivatedRoute, private alertController: AlertController, private cartService: CartService) { }
 
   ngOnInit() {
     this.id = this.activatedRoute.snapshot.params.id;
-    this.menuService.isFirstPage.next(false);
     this.dataService.getInstallItem(this.id)
       .subscribe(
         (ii: InstallItem) => {

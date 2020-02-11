@@ -2,7 +2,7 @@
   <div class="wrap">
     <div class="wrap-inner">
       <h2 text-center>Корзина</h2>
-      <div class="good-list" *ngIf="goods.length > 0;else emrtyCart">
+      <div @inAnimation class="good-list" *ngIf="goods.length > 0;else emrtyCart">
         <table>
           <thead>
             <tr>
@@ -19,9 +19,9 @@
               <td>{{good.name}}</td>
               <td>
                 <div class="price-tocart">
-                  <div class="price-tocart-minus" data-id="{{good.id}}" (click)="cartMinus($event)">-</div>
+                  <div class="price-tocart-minus" data-id="{{good.id}}" (click)="minus(good)">-</div>
                   <div class="price-tocart-value">{{good.quantity}}</div>
-                  <div class="price-tocart-plus" data-id="{{good.id}}" (click)="cartPlus($event)">+</div>
+                  <div class="price-tocart-plus" data-id="{{good.id}}" (click)="plus(good)">+</div>
                 </div>
               </td>
               <td>{{good.price}} руб.</td>
@@ -56,7 +56,7 @@
 </ion-content>
 
 <ng-template #emrtyCart>
-  <div class="alert alert-info">
+  <div class="alert alert-info" @inAnimation>
     Нет товаров!
   </div>
 </ng-template>

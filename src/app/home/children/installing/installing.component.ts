@@ -21,10 +21,9 @@ export class InstallingComponent implements OnInit {
     },
   };
   installItems = new BehaviorSubject<InstallItem[]>([]);
-  constructor(private menuService: MenuService, private dataService: DataService) { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
-    this.menuService.isFirstPage.next(false);
     this.dataService.getInstallItems();
     this.installItems = this.dataService.installItems;
   }

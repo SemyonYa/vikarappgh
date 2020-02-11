@@ -1,74 +1,65 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuService } from 'src/app/_services/menu.service';
 import { Category } from 'src/app/_models/category';
 import { DataService } from 'src/app/_services/data.service';
-import { GoodGroup } from 'src/app/_models/good-group';
-import { Good } from 'src/app/_models/good';
 import { CartService } from 'src/app/_services/cart.service';
-import { BehaviorSubject } from 'rxjs';
+import { Good } from 'src/app/_models/good';
+import { inAnimation } from 'src/app/_animations/in.animation';
 
 @Component({
   selector: 'app-catalog',
   templateUrl: './catalog.component.html',
   styleUrls: ['./catalog.component.scss'],
+  animations: [inAnimation]
 })
 export class CatalogComponent implements OnInit {
   categories: Category[] = [];
-  categories$ = new BehaviorSubject<Category[]>([]);
   filter: number;
-  constructor(private menuService: MenuService, private dataService: DataService, private cartService: CartService) { }
+  constructor(private dataService: DataService, private cartService: CartService) { }
 
   ngOnInit() {
-    this.categories$ = this.dataService.categories$;
-    this.categories$.subscribe(
-      (cs) => {
-        console.log("TCL: CatalogComponent -> ngOnInit -> cs", cs)
-      }
-    );
-    this.menuService.isFirstPage.next(false);
-    this.filter = 0;
-    this.dataService.getCategories()
+    this.dataService.categories$
       .subscribe(
         (data: Category[]) => {
-          for (let c of data) {
-            this.dataService.getGoodGroups(c.id)
-              .subscribe(
-                (data2: GoodGroup[]) => {
-                  for (let gg of data2) {
-                    this.dataService.getGoods(gg.id)
-                      .subscribe(
-                        (data3: Good[]) => {
-                          const cart = this.cartService.getCart();
-                          data3.forEach(good => {
-                            const item = cart.find(i => i.id === good.id);
-                            if (item !== undefined) {
-                              good.setQuantity(item.quantity);
-                            }
-                          });
-                          gg.fillGoods(data3);
-                        }
-                      );
-                  }
-                  c.fillGoodGroups(data2);
-                }
-              );
-          }
           this.categories = data;
+          const cartItems = this.cartService.cart$.value;
+          data.forEach(c => {
+            c.goodGroups.forEach(gg => {
+              gg.goods.forEach(g => {
+                let currentItem = cartItems.find(i => i.id == g.id);
+                if (currentItem !== undefined) {
+                  g.quantity = currentItem.quantity;
+                }
+              });
+            });
+          });
         }
       );
+    this.filter = 0;
   }
 
   filtering(n) {
+    this.filter = 100;
     this.filter = n;
   }
 
 
-  cartMinus(e: MouseEvent) {
-    this.cartService.minus(e);
+  minus(good: Good) {
+    good.decrement();
+    this.cartService.minus(good.id);
   }
 
-  cartPlus(e: MouseEvent) {
-    this.cartService.plus(e);
+  plus(good: Good) {
+    good.increment();
+    this.cartService.plus(good.id);
+  }
+
+  segmentChanged(e) {
+    console.log("TCL: CatalogComponent -> segmentChanged -> e", e)
+  }
+
+  qwe(n) {
+    console.log("TCL: CatalogComponent -> qwe -> n", n)
+
   }
 
 }

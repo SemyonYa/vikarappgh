@@ -11,7 +11,6 @@ export class FirstComponent implements OnInit {
   constructor(private menuService: MenuService) { }
 
   ngOnInit() {
-    this.menuService.isFirstPage.next(true);
   }
 
   showMenu() {

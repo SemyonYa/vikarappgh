@@ -5,55 +5,58 @@ import { Good } from 'src/app/_models/good';
 import { DataService } from 'src/app/_services/data.service';
 import { ICartItem } from 'src/app/_models/i-cart-item';
 import { BehaviorSubject } from 'rxjs';
+import { Category } from 'src/app/_models/category';
+import { inAnimation } from 'src/app/_animations/in.animation';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss'],
+  animations: [inAnimation]
 })
 export class CartComponent implements OnInit {
-  // goods$: BehaviorSubject<Good[]> = new BehaviorSubject<Good[]>([]);
   goods: Good[] = [];
   sum = 0;
-  constructor(private menuService: MenuService, private cartService: CartService, private dataService: DataService) { }
+  constructor(private cartService: CartService, private dataService: DataService) { }
 
   ngOnInit() {
-    this.cartService.cart$
+    const cartitems = this.cartService.cart$.value;
+    this.dataService.categories$
       .subscribe(
-        (data: ICartItem[]) => {
-          this.goods = [];
-          data.forEach(
-            (i: ICartItem) => {
-              this.dataService.getGood(i.id)
-                .subscribe(
-                  (g: Good) => {
-                    g.setQuantity(i.quantity);
-                    this.goods.push(g);
-                    this.goods.sort((a, b) => a.id - b.id);
-                    // this.goods$.next();
-                    this.sum += g.getSum();
-                  }
-                );
-            }
-          );
+        (data: Category[]) => {
+          data.forEach(c => {
+            c.goodGroups.forEach(gg => {
+              gg.goods.forEach(g => {
+                const item = cartitems.find(i => i.id == g.id);
+                if (item !== undefined) {
+                  g.quantity = item.quantity;
+                  this.goods.push(g);
+                }
+              });
+            });
+          });
         }
       );
-    this.menuService.isFirstPage.next(false);
   }
 
   clear() {
-    this.cartService.setCart([]);
+    this.cartService.clear();
   }
 
   submit() {
     alert('submit order');
   }
 
-  cartMinus(e: MouseEvent) {
-    this.cartService.minus(e);
+  minus(good: Good) {
+    good.decrement();
+    if (good.quantity === 0) {
+      this.goods.splice(this.goods.findIndex(g => g.id == good.id), 1);
+    }
+    this.cartService.minus(good.id);
   }
 
-  cartPlus(e: MouseEvent) {
-    this.cartService.plus(e);
+  plus(good: Good) {
+    good.increment();
+    this.cartService.plus(good.id);
   }
 }

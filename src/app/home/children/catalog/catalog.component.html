@@ -1,8 +1,39 @@
 <ion-content>
   <div class="price">
-    <div class="categories">
-      <!-- <h2>Прайс</h2> -->
+    <ion-segment>
+      <ion-segment-button value="category.id" *ngFor="let category of categories" (ionSelect)="qwe(category.id)">
+        <ion-label>category.name</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+
+    <ion-segment scrollable value="heart">
+      <ion-segment-button value="home" *ngFor="let category of categories">
+        <ion-icon name="home"></ion-icon>
+      </ion-segment-button>
+      <!-- <ion-segment-button value="heart">
+        <ion-icon name="heart"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button value="pin">
+        <ion-icon name="pin"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button value="star">
+        <ion-icon name="star"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button value="call">
+        <ion-icon name="call"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button value="globe">
+        <ion-icon name="globe"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button value="basket">
+        <ion-icon name="basket"></ion-icon>
+      </ion-segment-button> -->
+    </ion-segment>
+
+    <!-- <div class="categories">
+      <h2>Прайс</h2>
       <div class="title"></div>
+      <h1>Каталог</h1>
       <div class="categories-item" (click)="filtering(0)" [ngClass]="{'is-active': filter === 0}">ВСЕ</div>
       <div class="categories-item" [ngClass]="{'is-active': category.n === filter}" (click)="filtering(category.n)"
         *ngFor="let category of categories">{{category.name}}</div>
@@ -39,9 +70,9 @@
                 <td>{{good.price}}</td>
                 <td>
                   <div class="price-tocart">
-                    <div class="price-tocart-minus" data-id="{{good.id}}" (click)="cartMinus($event)">-</div>
+                    <div class="price-tocart-minus" data-id="{{good.id}}" (click)="minus(good)">-</div>
                     <div class="price-tocart-value">{{good.quantity}}</div>
-                    <div class="price-tocart-plus" data-id="{{good.id}}" (click)="cartPlus($event)">+</div>
+                    <div class="price-tocart-plus" data-id="{{good.id}}" (click)="plus(good)">+</div>
                   </div>
                 </td>
               </tr>
@@ -65,9 +96,9 @@
                 <td>{{good.price}}</td>
                 <td>
                   <div class="price-tocart">
-                    <div class="price-tocart-minus" data-id="{{good.id}}" (click)="cartMinus($event)">-</div>
+                    <div class="price-tocart-minus" data-id="{{good.id}}" (click)="minus(good)">-</div>
                     <div class="price-tocart-value">{{good.quantity}}</div>
-                    <div class="price-tocart-plus" data-id="{{good.id}}" (click)="cartPlus($event)">+</div>
+                    <div class="price-tocart-plus" data-id="{{good.id}}" (click)="plus(good)">+</div>
                   </div>
                 </td>
               </tr>
@@ -75,6 +106,6 @@
           </table>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </ion-content>

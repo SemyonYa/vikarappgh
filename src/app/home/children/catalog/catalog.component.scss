@@ -26,10 +26,10 @@ ion-content {
             transform: translateX(-10px);
         }
 
-        h2 {
+        h1 {
             flex-basis: 100%;
             text-align: left;
-            padding-top: 20px;
+            // padding-top: 20px;
             color: var(--ion-color-primary);
         }
 
@@ -62,7 +62,7 @@ ion-content {
         background-color: rgba(255, 255, 255, .7);
 
         h3 {
-            color: var(--ion-color-primary);
+            color: #555; // var(--ion-color-primary);
             font-size: 24px;
         }
 
@@ -136,59 +136,59 @@ ion-content {
         }
     }
 
-    .price-tocart {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 12px;
+    // .price-tocart {
+    //     display: flex;
+    //     justify-content: center;
+    //     align-items: center;
+    //     font-size: 12px;
 
-        &-minus,
-        &-plus,
-        &-value {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 6px;
-            border: solid 1px var(--ion-color-primary);
-            line-height: 1;
-            transition: .4s;
-            font-weight: 600;
-            background-color: rgba(255, 255, 255, .8);
-        }
+    //     &-minus,
+    //     &-plus,
+    //     &-value {
+    //         display: flex;
+    //         justify-content: center;
+    //         align-items: center;
+    //         padding: 6px;
+    //         border: solid 1px var(--ion-color-primary);
+    //         line-height: 1;
+    //         transition: .4s;
+    //         font-weight: 600;
+    //         background-color: rgba(255, 255, 255, .8);
+    //     }
 
-        &-minus {
-            border-top-left-radius: 4px;
-            border-bottom-left-radius: 4px;
-            cursor: pointer;
-            width: 24px;
-            height: 24px;
+    //     &-minus {
+    //         border-top-left-radius: 4px;
+    //         border-bottom-left-radius: 4px;
+    //         cursor: pointer;
+    //         width: 24px;
+    //         height: 24px;
 
-            &:hover {
-                background-color: var(--ion-color-primary);
-                color: var(--ion-color-primary-contrast);
-            }
-        }
+    //         &:hover {
+    //             background-color: var(--ion-color-primary);
+    //             color: var(--ion-color-primary-contrast);
+    //         }
+    //     }
 
-        &-plus {
-            border-top-right-radius: 4px;
-            border-bottom-right-radius: 4px;
-            cursor: pointer;
-            width: 24px;
-            height: 24px;
+    //     &-plus {
+    //         border-top-right-radius: 4px;
+    //         border-bottom-right-radius: 4px;
+    //         cursor: pointer;
+    //         width: 24px;
+    //         height: 24px;
 
-            &:hover {
-                background-color: var(--ion-color-primary);
-                color: var(--ion-color-primary-contrast);
-            }
-        }
+    //         &:hover {
+    //             background-color: var(--ion-color-primary);
+    //             color: var(--ion-color-primary-contrast);
+    //         }
+    //     }
 
-        &-value {
-            border-left: none;
-            border-right: none;
-            color: var(--ion-color-primary);
-            // box-shadow: 0 0 5px 0 rgba(0, 0, 0, .4);
-        }
-    }
+    //     &-value {
+    //         border-left: none;
+    //         border-right: none;
+    //         color: var(--ion-color-primary);
+    //         // box-shadow: 0 0 5px 0 rgba(0, 0, 0, .4);
+    //     }
+    // }
 
     img {
         box-shadow: 0 0 5px 0 rgba(0, 0, 0, .4);

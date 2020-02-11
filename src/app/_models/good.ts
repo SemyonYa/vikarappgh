@@ -28,4 +28,12 @@ export class Good {
     getSum(): number {
         return this.price * this.quantity;
     }
+
+    increment() {
+        this.quantity = this.quantity < 50 ? this.quantity + 1 : 50;
+    }
+
+    decrement() {
+        this.quantity = this.quantity > 0 ? this.quantity - 1 : 0;
+    }
 }
