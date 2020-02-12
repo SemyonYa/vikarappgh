@@ -43,7 +43,7 @@ export class AppComponent {
                       this.modalController.dismiss();
                     }
                   }
-                )
+                );
             }
           }
         );

@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  host: 'http://mishadatagh'
+  host: 'http://data.vikar-auto.injini.ru'
 };
 
 /*

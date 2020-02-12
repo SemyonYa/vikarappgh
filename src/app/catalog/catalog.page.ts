@@ -1,17 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { Category } from 'src/app/_models/category';
-import { DataService } from 'src/app/_services/data.service';
-import { CartService } from 'src/app/_services/cart.service';
-import { Good } from 'src/app/_models/good';
-import { inAnimation } from 'src/app/_animations/in.animation';
+import { Good } from '../_models/good';
+import { Category } from '../_models/category';
+import { DataService } from '../_services/data.service';
+import { CartService } from '../_services/cart.service';
 
 @Component({
   selector: 'app-catalog',
-  templateUrl: './catalog.component.html',
-  styleUrls: ['./catalog.component.scss'],
-  animations: [inAnimation]
+  templateUrl: './catalog.page.html',
+  styleUrls: ['./catalog.page.scss'],
 })
-export class CatalogComponent implements OnInit {
+export class CatalogPage implements OnInit {
   categories: Category[] = [];
   filter: number;
   constructor(private dataService: DataService, private cartService: CartService) { }
@@ -60,5 +58,4 @@ export class CatalogComponent implements OnInit {
   qwe(n) {
     console.log('TCL: CatalogComponent -> qwe -> n', n);
   }
-
 }

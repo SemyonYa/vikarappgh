@@ -1,8 +1,4 @@
-<ion-content>
-  <router-outlet></router-outlet>
-</ion-content>
-
-<!-- <div class="menu" @menuAnimation *ngIf="!isFirst">
+<div class="menu" @menuAnimation *ngIf="!isFirst">
   <div class="menu-item" *ngFor="let menuItem of menu" [routerLink]="[menuItem.href]" routerLinkActive="active">
     {{menuItem.title}}
   </div>
@@ -31,4 +27,4 @@
 <div class="cart" [routerLink]="['/home/cart']">
   <ion-icon name="cart"></ion-icon>
   <span class="counter">{{cart?.value.length}}</span>
-</div> -->
+</div>
