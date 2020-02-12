@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuService } from 'src/app/_services/menu.service';
 import { DataService } from 'src/app/_services/data.service';
 import { InstallItem } from 'src/app/_models/install-item';
 import { ActivatedRoute } from '@angular/router';
@@ -21,18 +20,27 @@ export class InstallingItemComponent implements OnInit {
 
   ngOnInit() {
     this.id = this.activatedRoute.snapshot.params.id;
-    this.dataService.getInstallItem(this.id)
+    console.log("TCL: InstallingItemComponent -> ngOnInit -> this.id", this.id)
+    this.dataService.installItems$
       .subscribe(
-        (ii: InstallItem) => {
-          this.installItem = ii;
-          this.dataService.getInstallItemGoods(this.id)
-            .subscribe(
-              (gs: InstallItemGood[]) => {
-                this.installItem.fillGoods(gs);
-              }
-            );
+        (data: InstallItem[]) => {
+          this.installItem = data.find(ii => ii.id == this.id);
         }
       );
+
+    console.log("TCL: InstallingItemComponent -> ngOnInit -> this.installItem", this.installItem)
+    // this.dataService.getInstallItem(this.id)
+    //   .subscribe(
+    //     (ii: InstallItem) => {
+    //       this.installItem = ii;
+    //       this.dataService.getInstallItemGoods(this.id)
+    //         .subscribe(
+    //           (gs: InstallItemGood[]) => {
+    //             this.installItem.fillGoods(gs);
+    //           }
+    //         );
+    //     }
+    //   );
   }
 
   async groupToCart() {
@@ -54,6 +62,10 @@ export class InstallingItemComponent implements OnInit {
     });
 
     await alert.present();
+  }
+
+  scrolling(e: CustomEvent, cog: HTMLElement) {
+    cog.style.transform = 'translate(0, -30%) rotate(' + e.detail.scrollTop / 5 + 'deg)';
   }
 
 }

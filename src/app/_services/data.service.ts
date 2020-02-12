@@ -16,9 +16,10 @@ import { BehaviorSubject } from 'rxjs';
 export class DataService {
   constructor(private http: HttpClient) { }
   categories$ = new BehaviorSubject<Category[]>([]);
+  installItems$ = new BehaviorSubject<InstallItem[]>([]);
 
   getFull() {
-    this.http.get(environment.host + '/data2/full')
+    this.http.get(environment.host + '/data2/full-categories')
       .subscribe(
         (data: any[]) => {
           let categories: Category[] = [];
@@ -37,6 +38,29 @@ export class DataService {
             categories.push(category);
           });
           this.categories$.next(categories);
+        }
+      );
+  }
+
+  getFullInstallItems() {
+    this.http.get(environment.host + '/data2/full-install-items')
+      .subscribe(
+        (data: any[]) => {
+          console.log("TCL: DataService -> getFullInstallItems -> data", data)
+          let installItems: InstallItem[] = [];
+          data.forEach(ii => {
+            let installItem = new InstallItem(ii.id, ii.name, ii.works, ii.recommendations, ii.as_result, ii.img);
+            (ii.install_item_goods as any[]).forEach(iig => {
+              const installItemGood = new InstallItemGood(
+                new Good(iig.good.id, iig.good.name, iig.good.thickness, iig.good.size, iig.good.square, iig.good.price, iig.good.length, iig.good.width),
+                iig.quantity
+              )
+              installItem.installItemGoods.push(installItemGood)
+            });
+            installItems.push(installItem);
+          });
+          this.installItems$.next(installItems);
+          console.log("TCL: DataService -> getFullInstallItems -> installItems", installItems)
         }
       );
   }
@@ -84,7 +108,7 @@ export class DataService {
     this.http.get(environment.host + '/data2/install-items')
       .pipe(
         map(
-          (data: any[]) => data.map(c => new InstallItem(c.id, c.name, c.works, c.recommendations, c.as_result, c.img))
+          (data: any[]) => data.map(ii => new InstallItem(ii.id, ii.name, ii.works, ii.recommendations, ii.as_result, ii.img))
         )
       )
       .subscribe(

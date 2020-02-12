@@ -20,12 +20,18 @@ export class InstallingComponent implements OnInit {
       slideShadows: true,
     },
   };
-  installItems = new BehaviorSubject<InstallItem[]>([]);
+  installItems: InstallItem[] = [];
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
-    this.dataService.getInstallItems();
-    this.installItems = this.dataService.installItems;
+    this.dataService.installItems$
+      .subscribe(
+        (data: InstallItem[]) => {
+          this.installItems = data;
+        }
+      );
   }
-
+  scrolling(e: CustomEvent, cog: HTMLElement) {
+    cog.style.transform = 'translate(0, -30%) rotate(' + e.detail.scrollTop + 'deg)';
+  }
 }

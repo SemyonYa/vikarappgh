@@ -5,12 +5,13 @@ import { menuMobileAnimation, menuBtnMobileAnimation, menuAnimation } from '../_
 import { BehaviorSubject } from 'rxjs';
 import { ICartItem } from '../_models/i-cart-item';
 import { CartService } from '../_services/cart.service';
+import { inFromLeftAnimation } from '../_animations/inFromLeft.animation';
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss'],
-  animations: [menuAnimation, menuBtnMobileAnimation, menuMobileAnimation]
+  animations: [menuAnimation, menuBtnMobileAnimation, menuMobileAnimation, inFromLeftAnimation]
 })
 export class MenuComponent implements OnInit {
   menu: Set<IMenuItem> = new Set<IMenuItem>();

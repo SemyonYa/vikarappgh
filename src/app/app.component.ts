@@ -29,6 +29,7 @@ export class AppComponent {
   initializeApp() {
     this.platform.ready().then(() => {
       this.dataService.getFull();
+      this.dataService.getFullInstallItems();
       this.statusBar.styleDefault();
       this.splashScreen.hide();
       this.router.events

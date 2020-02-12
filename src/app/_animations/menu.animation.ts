@@ -38,7 +38,7 @@ export const menuBtnMobileAnimation =
     trigger('menuBtnMobileAnimation', [
         transition(':enter', [
             style({
-                transform: 'translateY(-20vh)',
+                transform: 'translateY(100vh)',
                 opacity: 0
             }),
             animate('0.4s',
@@ -50,12 +50,12 @@ export const menuBtnMobileAnimation =
         transition(':leave', [
             style({
                 transform: '*',
-                opacity: 1
+                // opacity: 1
             }),
             animate('0.4s',
                 style({
-                    transform: 'translateY(-20vh)',
-                    opacity: 0
+                    transform: 'scale(0)',
+                    // opacity: 0
                 }))
         ])
     ]);

@@ -58,3 +58,12 @@
     }
 }
 
+// SLIDER
+.swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction {
+    bottom: -5px;
+}
+
+.swiper-pagination-bullet {
+    width: 14px;
+    height: 14px;
+}

@@ -1,13 +1,13 @@
-<div class="cog"></div>
-<ion-content>
+<div class="cog" #cog></div>
+<ion-content [scrollEvents]="true" (ionScroll)="scrolling($event, cog)" *ngIf="installItem">
   <div class="wrap">
     <h1>{{installItem?.name}}</h1>
     <div class="wrap">
-      <ion-list *ngIf="installItem?.goods.length > 0;else loading">
+      <ion-list *ngIf="installItem?.installItemGoods.length > 0;else loading">
         <ion-list-header>
           <ion-label>Материалы</ion-label>
         </ion-list-header>
-        <ion-item *ngFor="let iiGood of installItem.goods; let last = last" lines="{{last ? 'none' : 'full'}}">
+        <ion-item *ngFor="let iiGood of installItem.installItemGoods; let last = last" lines="{{last ? 'none' : 'full'}}">
           <!-- <ion-thumbnail slot="start">
             <ion-icon name="document" size="large" color="secondary"></ion-icon>
           </ion-thumbnail> -->
@@ -27,7 +27,7 @@
       </ion-button>
     </div>
     <div class="wrap">
-      <ion-list *ngIf="installItem?.goods.length > 0;else loading">
+      <ion-list>
         <ion-list-header>
           <ion-label>Порядок проведения работ</ion-label>
         </ion-list-header>
@@ -40,7 +40,7 @@
     </div>
 
     <div class="wrap">
-      <ion-list *ngIf="installItem?.recommendations.length > 0;else loading">
+      <ion-list>
         <ion-list-header>
           <ion-label>Рекомендации</ion-label>
         </ion-list-header>
@@ -55,7 +55,7 @@
     </div>
 
     <div class="wrap">
-      <ion-list *ngIf="installItem?.results.length > 0;else loading">
+      <ion-list>
         <ion-list-header>
           <ion-label>Как результат</ion-label>
         </ion-list-header>

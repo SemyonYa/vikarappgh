@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuService } from 'src/app/_services/menu.service';
 import { DataService } from 'src/app/_services/data.service';
 import { Category } from 'src/app/_models/category';
 
@@ -13,7 +12,7 @@ export class DescriptionComponent implements OnInit {
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
-    this.dataService.getCategories()
+    this.dataService.categories$
       .subscribe(
         (data: Category[]) => {
           this.categories = data;

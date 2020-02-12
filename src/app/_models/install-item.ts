@@ -9,7 +9,7 @@ export class InstallItem {
     recommendations: string[];
     results: string[];
     img: string;
-    goods: InstallItemGood[];
+    installItemGoods: InstallItemGood[];
     cartItems: ICartItem[];
 
     constructor(id: string, name: string, works: string, recommendations: string, asResult: string, img: string = '') {
@@ -19,13 +19,13 @@ export class InstallItem {
         this.recommendations = recommendations ? recommendations.split(';;') : [];
         this.results = asResult ? asResult.split(';;') : [];
         this.img = HelpMe.getImg(img);
-        this.goods = [];
+        this.installItemGoods = [];
         this.cartItems = [];
     }
 
-    fillGoods(goods: InstallItemGood[]) {
-        this.goods = goods;
-        for (const iiGood of goods) {
+    fillGoods(installItemGoods: InstallItemGood[]) {
+        this.installItemGoods = installItemGoods;
+        for (const iiGood of installItemGoods) {
             this.cartItems.push({ id: iiGood.good.id, quantity: iiGood.quantity})
         }
     }

@@ -1,5 +1,5 @@
-<div class="cog"></div>
-<ion-content>
+<div class="cog" #cog></div>
+<ion-content [scrollEvents]="true" (ionScroll)="scrolling($event, cog)">
   <h1>Установка своими руками</h1>
   <!-- <div class="title"></div> -->
   <div class="install-info">
@@ -22,7 +22,7 @@
   </div>
   <div class="install-list">
     <ion-slides class="size10000" pager="true" [options]="{slidesPerView: 3}">
-      <ion-slide *ngFor="let installItem of installItems | async">
+      <ion-slide *ngFor="let installItem of installItems">
         <ion-card>
           <img src="{{installItem.img}}" alt="">
           <ion-card-header>
@@ -34,7 +34,7 @@
       </ion-slide>
     </ion-slides>
     <ion-slides class="size1024" pager="true" [options]="{slidesPerView: 2}">
-        <ion-slide *ngFor="let installItem of installItems | async">
+        <ion-slide *ngFor="let installItem of installItems">
           <ion-card>
             <img src="{{installItem.img}}" alt="">
             <ion-card-header>
@@ -46,7 +46,7 @@
         </ion-slide>
       </ion-slides>
       <ion-slides class="size650" pager="true" [options]="{slidesPerView: 1}">
-          <ion-slide *ngFor="let installItem of installItems | async">
+          <ion-slide *ngFor="let installItem of installItems">
             <ion-card>
               <img src="{{installItem.img}}" alt="">
               <ion-card-header>
