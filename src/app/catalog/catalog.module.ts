@@ -6,21 +6,29 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { CatalogPage } from './catalog.page';
+import { CategoryComponent } from './category/category.component';
+import { CategoryMenuComponent } from './category-menu/category-menu.component';
+import { CatalogRoutingModule } from './catalog-routing.module';
 
-const routes: Routes = [
-  {
-    path: '',
-    component: CatalogPage
-  }
-];
+// const routes: Routes = [
+//   {
+//     path: '',
+//     component: CatalogPage
+//   }
+// ];
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    CatalogRoutingModule
+    // RouterModule.forChild(routes)
   ],
-  declarations: [CatalogPage]
+  declarations: [
+    CatalogPage,
+    CategoryComponent,
+    CategoryMenuComponent
+  ]
 })
-export class CatalogPageModule {}
+export class CatalogPageModule { }

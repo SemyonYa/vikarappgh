@@ -12,6 +12,8 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomePageModule } from './home/home.module';
 import { MenuComponent } from './menu/menu.component';
+import { CartPageModule } from './cart/cart.module';
+import { CatalogPageModule } from './catalog/catalog.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { MenuComponent } from './menu/menu.component';
     AppRoutingModule,
     HomePageModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    CatalogPageModule,
+    CartPageModule
   ],
   providers: [
     StatusBar,

@@ -1,0 +1,19 @@
+.category-icon {
+    width: 30px;
+    height: 30px;
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    &.vibro {
+        background-image: url('/assets/icon/vibro.svg');
+    }
+
+    &.noise {
+        background-image: url('/assets/icon/noise.svg');
+    }
+
+    // &.vibro {
+    //     background-image: url('/assets/icon/viro.svg');
+    // }
+}

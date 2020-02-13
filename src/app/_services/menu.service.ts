@@ -15,7 +15,7 @@ export class MenuService {
 
     this.menu
       .add({ href: '/home/first', title: 'Главная' })
-      .add({ href: '/home/catalog', title: 'Каталог' })
+      .add({ href: '/catalog/1', title: 'Каталог' })
       .add({ href: '/home/description', title: 'Материалы' })
       .add({ href: '/home/installing', title: 'Установка' })
       .add({ href: '/home/contact', title: 'Контакты' });

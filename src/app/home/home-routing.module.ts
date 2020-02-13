@@ -6,7 +6,6 @@ import { CatalogComponent } from './children/catalog/catalog.component';
 import { ContactComponent } from './children/contact/contact.component';
 import { FirstComponent } from './children/first/first.component';
 import { InstallingComponent } from './children/installing/installing.component';
-import { CartComponent } from './children/cart/cart.component';
 import { InstallingItemComponent } from './children/installing-item/installing-item.component';
 import { DescriptionComponent } from './children/description/description.component';
 
@@ -19,9 +18,7 @@ const homeRoutes: Routes = [
       { path: 'first', component: FirstComponent },
       { path: 'description', component: DescriptionComponent },
       { path: 'installing', component: InstallingComponent, pathMatch: 'full' },
-      { path: 'installing/:id', component: InstallingItemComponent, pathMatch: 'full' },
-
-      { path: 'cart', component: CartComponent },
+      { path: 'installing/:id', component: InstallingItemComponent, pathMatch: 'full' }
     ]
   }
 ];

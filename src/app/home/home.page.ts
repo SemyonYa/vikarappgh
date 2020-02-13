@@ -12,37 +12,9 @@ import { ICartItem } from '../_models/i-cart-item';
   styleUrls: ['home.page.scss']
 })
 export class HomePage implements OnInit {
-  // isVisibleMobileMenu = false;
-  // isFirst = true;
-  // menu: Set<IMenuItem> = new Set<IMenuItem>();
-  // cart: BehaviorSubject<ICartItem[]>;
+
   constructor(private menuService: MenuService, private cartService: CartService) { }
 
-  ngOnInit() {
-    // this.cartService.initCart();
-    // this.cart = this.cartService.cart$;
-    // this.menu = this.menuService.menu;
-    // this.menuService.isVisibleMobile
-    //   .subscribe(
-    //     val => {
-    //       this.isVisibleMobileMenu = val;
-    //     }
-    //   );
-    // this.menuService.isFirstPage
-    //   .subscribe(
-    //     val => {
-    //       this.isFirst = val;
-    //     }
-    //   );
-  }
-
-  // showMenu() {
-  //   this.menuService.show();
-  //   console.log('show');
-  // }
-
-  // hideMenu() {
-  //   this.menuService.hide();
-  // }
+  ngOnInit() { }
 
 }

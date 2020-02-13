@@ -6,21 +6,31 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { CartPage } from './cart.page';
+import { CartRoutingModule } from './cart-routing.module';
+import { InComponent } from './in/in.component';
+import { FormComponent } from './form/form.component';
+import { SuccessComponent } from './success/success.component';
 
-const routes: Routes = [
-  {
-    path: '',
-    component: CartPage
-  }
-];
+// const routes: Routes = [
+//   {
+//     path: '',
+//     component: CartPage
+//   }
+// ];
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    CartRoutingModule
+    // RouterModule.forChild(routes)
   ],
-  declarations: [CartPage]
+  declarations: [
+    CartPage,
+    InComponent,
+    FormComponent,
+    SuccessComponent
+  ]
 })
 export class CartPageModule {}

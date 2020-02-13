@@ -1,0 +1,83 @@
+ion-content {
+    --padding-top: 76px;
+    --padding-bottom: 50px;
+    --background: transparent;
+    background-image: url('/assets/icon/cart.svg');
+    background-size: 15%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    padding: 10px;
+
+    .wrap {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &-inner {
+            width: 100%;
+            max-width: 1000px;
+        }
+    }
+
+    h2 {
+        font-size: 40px;
+        color: var(--ion-color-primary);
+    }
+}
+
+.good-list {
+    
+    table {
+        width: 100%;
+        border-spacing: 3px 5px;
+        border-collapse: separate;
+        padding-bottom: 10px;
+        background-color: rgba(255, 255, 255, .7);
+
+        td {
+            padding: 4px;
+            box-shadow: 0 0 2px 0 rgba(0, 0, 0, .3);
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        thead {
+            td {
+                color: var(--ion-color-primary);
+                border: solid 1px var(--ion-color-primary);
+                text-align: center;
+                font-weight: 600;
+            }
+        }
+
+        tbody {
+            td:nth-child(2) {
+                text-align: left;
+            }
+        }
+
+        tfoot {
+            font-weight: 600;
+
+            td {
+                color: var(--ion-color-primary);
+                border: solid 1px var(--ion-color-primary);
+                text-align: center;
+                font-weight: 600;
+            }
+
+            td:first-child {
+                text-align: left;
+            }
+        }
+    }
+}
+
+ion-toolbar {
+    --background: transparent;
+
+    ion-button {
+        --border-width: 1px;
+        background-color: rgba(255,255,255,.5);
+    }
+}
