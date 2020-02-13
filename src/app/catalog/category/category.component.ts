@@ -4,25 +4,23 @@ import { DataService } from 'src/app/_services/data.service';
 import { CartService } from 'src/app/_services/cart.service';
 import { Good } from 'src/app/_models/good';
 import { ActivatedRoute } from '@angular/router';
+import { inAnimation } from 'src/app/_animations/in.animation';
 
 @Component({
   selector: 'app-category',
   templateUrl: './category.component.html',
   styleUrls: ['./category.component.scss'],
+  animations: [inAnimation]
 })
 export class CategoryComponent implements OnInit {
   category: Category;
-  // filter: number;
-  // categoryN: number;
   constructor(private dataService: DataService, private cartService: CartService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     const categoryN = this.activatedRoute.snapshot.params.categoryId;
-    console.log('cId', categoryN);
     this.dataService.categories$
       .subscribe(
         (data: Category[]) => {
-          console.log('data', data);
           if (data.length > 0) {
             const cartItems = this.cartService.cart$.value;
             this.category = data.find(c => c.n == categoryN);
@@ -37,14 +35,7 @@ export class CategoryComponent implements OnInit {
           }
         }
       );
-    // this.filter = 0;
   }
-
-  // filtering(n) {
-  //   this.filter = 100;
-  //   this.filter = n;
-  // }
-
 
   minus(good: Good) {
     good.decrement();
@@ -55,13 +46,4 @@ export class CategoryComponent implements OnInit {
     good.increment();
     this.cartService.plus(good.id);
   }
-
-  // segmentChanged(e) {
-  //   console.log('TCL: CatalogComponent -> segmentChanged -> e', e);
-  // }
-
-  // qwe(n) {
-  //   console.log('TCL: CatalogComponent -> qwe -> n', n);
-  // }
-
 }

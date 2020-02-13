@@ -1,8 +1,15 @@
 ion-header {
-    height: 70px;
-    opacity: 0;
+    padding: 70px 0px 0px;
+    
+    // height: 70px;
+    // opacity: 0;
 }
 
 ion-content {
+    --background: transparent;
+    background-image: url('/assets/icon/waves-05.svg');
+    background-size: cover;
+    background-position: center center;
     --padding-top: 0px;
+    z-index: 10;
 }

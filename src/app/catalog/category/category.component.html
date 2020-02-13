@@ -1,8 +1,8 @@
-<ion-content *ngIf="category;else loading">
+<ion-content *ngIf="category;else loading" @inAnimation>
     <div class="list">
       <div class="category">
-        <h3>{{category.name}}</h3>
-        <p class="category-img">
+        <h3 class="text-center">{{category.name}}</h3>
+        <p class="category-img text-center" text-center>
           <img src="{{category.img}}" alt="" *ngIf="category.img">
         </p>
         <div class="good-group" *ngFor="let goodGroup of category?.goodGroups">

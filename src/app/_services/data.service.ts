@@ -46,7 +46,6 @@ export class DataService {
     this.http.get(environment.host + '/data2/full-install-items')
       .subscribe(
         (data: any[]) => {
-          console.log("TCL: DataService -> getFullInstallItems -> data", data)
           let installItems: InstallItem[] = [];
           data.forEach(ii => {
             let installItem = new InstallItem(ii.id, ii.name, ii.works, ii.recommendations, ii.as_result, ii.img);
@@ -60,7 +59,6 @@ export class DataService {
             installItems.push(installItem);
           });
           this.installItems$.next(installItems);
-          console.log("TCL: DataService -> getFullInstallItems -> installItems", installItems)
         }
       );
   }

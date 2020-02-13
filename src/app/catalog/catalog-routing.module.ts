@@ -9,7 +9,8 @@ const cartRoutes: Routes = [
   {
     path: 'catalog', component: CatalogPage,
     children: [
-      { path: ':categoryId', component: CategoryComponent }
+      { path: ':categoryId', component: CategoryComponent },
+      { path: '', redirectTo: '/catalog/1', pathMatch: "full" },
     ]
   }
 ];

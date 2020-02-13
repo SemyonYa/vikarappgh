@@ -1,8 +1,6 @@
 ion-content {
-    --padding-top: 76px;
     --padding-bottom: 50px;
     --background: transparent;
-    background-image: url('/assets/icon/waves-05.svg');
     background-size: cover;
     background-position: center center;
     padding: 10px;
@@ -14,9 +12,19 @@ ion-content {
 
     .list {
         width: 100%;
-        // margin-left: 20%;
         padding: 10px;
-        background-color: rgba(255, 255, 255, .7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        .category {
+            width: 100%;
+            max-width: 1100px;
+            background-color: rgba(255, 255, 255, .95);
+            border-radius: 10px;
+            box-shadow: 0 0 5px 0 rgba(0,0,0,.4);
+            padding: 10px;
+        }
 
         h3 {
             color: #555; // var(--ion-color-primary);

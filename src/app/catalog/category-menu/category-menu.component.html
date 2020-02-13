@@ -1,18 +1,20 @@
-<!-- <div> -->
-<ion-segment *ngIf="categoryN" scrollable value="{{categoryN}}" text-center>
-  <ion-segment-button value="1" [routerLink]="['/catalog/1']">
-    <!-- <div class="category-icon vibro"></div> -->
-    <ion-icon name="alarm"></ion-icon>
-    <p>Вибропоглощающие материалы</p>
-    <!-- <ion-icon name="home"></ion-icon> -->
-  </ion-segment-button>
-  <ion-segment-button value="2" [routerLink]="['/catalog/2']">
-    <ion-icon name="heart"></ion-icon>
-    <p>Шумоизоляция, теплоизоляция, шумо-теплоизолирующие материалы</p>
-  </ion-segment-button>
-  <ion-segment-button value="3" [routerLink]="['/catalog/3']">
-    <ion-icon name="pin"></ion-icon>
-    <p>Антискрипскрипные материалы</p>
-  </ion-segment-button>
-</ion-segment>
-<!-- </div> -->
+<div class="wrap">
+  <div class="item" *ngFor="let category of categories" [routerLink]="['/catalog/' + category.n]" routerLinkActive="active">
+    <ion-icon src="/assets/icon/{{icons[category?.n - 1]}}"></ion-icon>
+    {{category.name}}
+  </div>
+  <!-- <ion-segment *ngIf="categoryN" value="{{categoryN}}">
+    <ion-segment-button value="1" [routerLink]="['/catalog/1']" layout="label-hide">
+      <ion-icon src="/assets/icon/vibro.svg"></ion-icon>
+      <div>Вибропоглощающие материалы</div>
+    </ion-segment-button>
+    <ion-segment-button value="2" [routerLink]="['/catalog/2']" layout="label-hide">
+      <ion-icon src="/assets/icon/noise.svg"></ion-icon>
+      <div>Шумоизоляция, теплоизоляция, шумо-теплоизолирующие материалы</div>
+    </ion-segment-button>
+    <ion-segment-button value="3" [routerLink]="['/catalog/3']" layout="label-hide">
+      <ion-icon src="/assets/icon/vibro.svg"></ion-icon>
+      <div>Антискрипскрипные материалы</div>
+    </ion-segment-button>
+  </ion-segment> -->
+</div>

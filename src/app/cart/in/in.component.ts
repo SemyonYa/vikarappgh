@@ -32,12 +32,15 @@ export class InComponent implements OnInit {
               });
             });
           });
+          this.getSum();
         }
       );
   }
 
   clear() {
+    this.goods = [];
     this.cartService.clear();
+    this.getSum();
   }
 
   submit() {
@@ -50,11 +53,20 @@ export class InComponent implements OnInit {
       this.goods.splice(this.goods.findIndex(g => g.id == good.id), 1);
     }
     this.cartService.minus(good.id);
+    this.getSum();
   }
 
   plus(good: Good) {
     good.increment();
     this.cartService.plus(good.id);
+    this.getSum();
+  }
+
+  getSum() {
+    this.sum = 0;
+    this.goods.forEach(g => {
+      this.sum += g.price * g.quantity;
+    })
   }
 
 }

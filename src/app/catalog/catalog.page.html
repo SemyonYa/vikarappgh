@@ -1,23 +1,14 @@
-<ion-header></ion-header>
+<ion-header class="ion-no-border">
+  <app-category-menu [ngClass]="{zIndex: '100'}"></app-category-menu>
+</ion-header>
 <ion-content>
   <ion-router-outlet></ion-router-outlet>
-  <app-category-menu></app-category-menu>
+  <!-- <app-category [categoryN]="categoryN"></app-category> -->
   <!-- <ion-tabs>
     <ion-tab-bar slot="top">
-      <ion-tab-button tab="1">
-        <ion-icon name="calendar"></ion-icon>
-        <ion-label>Schedule</ion-label>
-        <ion-badge>6</ion-badge>
-      </ion-tab-button>
-
-      <ion-tab-button tab="2">
-        <ion-icon name="map"></ion-icon>
-        <ion-label>Map</ion-label>
-      </ion-tab-button>
-
-      <ion-tab-button tab="3">
-        <ion-icon name="information-circle"></ion-icon>
-        <ion-label>About</ion-label>
+      <ion-tab-button *ngFor="let category of categories" [tab]="category.n">
+        <ion-icon src="/assets/icon/{{icons[category.n - 1]}}"></ion-icon>
+        <ion-label>{{category.name}}</ion-label>
       </ion-tab-button>
     </ion-tab-bar>
   </ion-tabs> -->
