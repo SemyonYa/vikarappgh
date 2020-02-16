@@ -36,7 +36,7 @@ export class AppComponent {
         .subscribe(
           (e) => {
             if (e instanceof NavigationEnd) {
-              this.menuService.isFirstPage.next(e.url === '/home/first');
+              this.menuService.isFirstPage.next(e.url === '/home/first' || e.url === '/');
               this.modalController.getTop()
                 .then(
                   (mv) => {

@@ -16,9 +16,9 @@
         transition: .5s;
 
         &.active {
-            border-bottom-color: var(--ion-color-secondary);
+            border-bottom-color: var(--ion-color-primary);
             // background-color: var(--ion-color-secondary);
-            color: var(--ion-color-secondary);
+            color: var(--ion-color-primary);
         }
     }
 }

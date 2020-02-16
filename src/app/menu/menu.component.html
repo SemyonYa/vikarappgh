@@ -6,7 +6,8 @@
 
 <div class="menu-mobile" *ngIf="isVisibleMobileMenu" [@menuMobileAnimation]="isVisibleMobileMenu">
   <div class="menu-mobile-item" *ngFor="let menuItem of menu" [routerLink]="[menuItem.href]" routerLinkActive="active"
-    (click)="hideMenu()"> {{menuItem.title}}
+    (click)="hideMenu()">
+    {{menuItem.title}}
   </div>
   <div class="menu-mobile-close" (click)="hideMenu()">
     Закрыть <ion-icon name="close" size="small"></ion-icon>
@@ -14,9 +15,9 @@
 </div>
 
 <div class="menu-btn-wrap" @menuBtnMobileAnimation *ngIf="isFirst">
-  <ion-button size="large" [ngClass]="{'menu-btn': true}" (click)="showMenu()">
+  <ion-button fill="outline" color="primary" size="large" class="menu-btn" (click)="showMenu()">
     <ion-icon slot="icon-only" name="menu"></ion-icon>
-    MENU
+    меню
   </ion-button>
 </div>
 

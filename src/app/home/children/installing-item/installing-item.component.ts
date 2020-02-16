@@ -15,32 +15,18 @@ import { ICartItem } from '../../../_models/i-cart-item';
 export class InstallingItemComponent implements OnInit {
   id: number;
   installItem: InstallItem;
-  cartItems: ICartItem[] = [];
+  // cartItems: ICartItem[] = [];
   constructor(private dataService: DataService, private activatedRoute: ActivatedRoute, private alertController: AlertController, private cartService: CartService) { }
 
   ngOnInit() {
     this.id = this.activatedRoute.snapshot.params.id;
-    console.log("TCL: InstallingItemComponent -> ngOnInit -> this.id", this.id)
     this.dataService.installItems$
       .subscribe(
         (data: InstallItem[]) => {
           this.installItem = data.find(ii => ii.id == this.id);
+          console.log("TCL: InstallingItemComponent -> ngOnInit -> this.installItem", this.installItem)
         }
       );
-
-    console.log("TCL: InstallingItemComponent -> ngOnInit -> this.installItem", this.installItem)
-    // this.dataService.getInstallItem(this.id)
-    //   .subscribe(
-    //     (ii: InstallItem) => {
-    //       this.installItem = ii;
-    //       this.dataService.getInstallItemGoods(this.id)
-    //         .subscribe(
-    //           (gs: InstallItemGood[]) => {
-    //             this.installItem.fillGoods(gs);
-    //           }
-    //         );
-    //     }
-    //   );
   }
 
   async groupToCart() {

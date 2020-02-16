@@ -85,15 +85,18 @@
 }
 
 .menu-btn {
-    --background: rgba(var(--ion-color-primary-contrast-rgb), 0.5);
-    --border-radius: 0;
-    --border-color: var(--ion-color-primary);
-    --color: var(--ion-color-primary);
-    --border-style: solid;
+    // --background: rgba(var(--ion-color-primary-contrast-rgb), 0.5);
+    // --border-radius: 0;
+    // --border-color: var(--ion-color-primary);
+    // --color: var(--ion-color-primary);
+    // --border-style: solid;
     --border-width: 1px;
     --transition: .5s;
-    --background-hover: rgba(var(--ion-color-primary-rgb), 0.5);
-    --color-hover: white;
+    // --background-hover: rgba(var(--ion-color-primary-rgb), 0.5);
+    // --color-hover: white;
+    font-weight: 600;
+    box-shadow: inset 0 0 10px 0 rgba(255,255,255,.4), 0 0 10px 0 rgba(255,255,255,.4);
+    text-shadow: 0 0 1px white;
 }
 
 .menu-mobile-btn-wrap {
@@ -114,17 +117,24 @@
     }
 
     .counter {
-        position: absolute;
-        color: var(--ion-color-primary-contrast);
-        font-size: 20px;
+        position: fixed;
+        color: var(--ion-color-secondary);
+        font-size: 13px;
+        right: 5px;
+        top: 5px;
         font-weight: 600;
-        width: 20px;
-        height: 20px;
-        padding: 4px;
+        width: 25px;
+        height: 25px;
+        // padding: 4px;
         line-height: 1;
         border-radius: 50%;
-        transform: translate(-20px, -10px);
-        text-shadow: 1px -1px 0px var(--ion-color-secondary), -1px 1px 0px var(--ion-color-secondary), 1px 1px 0px var(--ion-color-secondary), -1px -1px 0px var(--ion-color-secondary);
+        // transform: translate(-20px, -10px);
+        background-color: rgba(255, 255, 255, .7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 0 5px 0 rgba(0, 0, 0, .25);
+        // text-shadow: 1px -1px 0px var(--ion-color-secondary), -1px 1px 0px var(--ion-color-secondary), 1px 1px 0px var(--ion-color-secondary), -1px -1px 0px var(--ion-color-secondary);
     }
 }
 

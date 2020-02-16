@@ -11,11 +11,6 @@ import { DataService } from '../_services/data.service';
 export class CatalogPage implements OnInit {
   categoryN: number;
   categories: Category[] = [];
-  // icons: string[] = [
-  //   "vibro.svg",
-  //   "noise.svg",
-  //   "noise.svg",
-  // ];
   constructor(private dataService: DataService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
@@ -26,6 +21,5 @@ export class CatalogPage implements OnInit {
         }
       );
     this.categoryN = this.activatedRoute.snapshot.children[0].params.categoryId;
-    console.log("TCL: CatalogPage -> ngOnInit -> this.categoryN", this.categoryN)
   }
 }

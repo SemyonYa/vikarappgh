@@ -8,9 +8,6 @@
           <ion-label>Материалы</ion-label>
         </ion-list-header>
         <ion-item *ngFor="let iiGood of installItem.installItemGoods; let last = last" lines="{{last ? 'none' : 'full'}}">
-          <!-- <ion-thumbnail slot="start">
-            <ion-icon name="document" size="large" color="secondary"></ion-icon>
-          </ion-thumbnail> -->
           <div>
             <h5>{{iiGood.good.name}}</h5>
             <h6>{{iiGood.good.size}}</h6>
@@ -20,12 +17,12 @@
         </ion-item>
       </ion-list>
     </div>
-    <div class="group-to-cart">
-      <ion-button [ngClass]="{'group-to-cart-btn': true}" (click)="groupToCart()">
+    <!-- <div class="group-to-cart">
+      <ion-button fill="outline" class="group-to-cart-btn" (click)="groupToCart()">
         <ion-icon slot="icon-only" name="cart"></ion-icon>
         Добавить группу в корзину
       </ion-button>
-    </div>
+    </div> -->
     <div class="wrap">
       <ion-list>
         <ion-list-header>
@@ -63,14 +60,14 @@
           lines="{{last ? 'none' : 'full'}}">
           <span> {{res}} </span>
           <ion-note color="primary" slot="start">
-            <ion-icon size="large" name="done-all"></ion-icon>
+            <ion-icon size="large" name="checkmark-done-outline"></ion-icon>
           </ion-note>
         </ion-item>
       </ion-list>
     </div>
 
     <div class="group-to-cart">
-      <ion-button [ngClass]="{'group-to-cart-btn': true}" (click)="groupToCart()">
+      <ion-button fill="outline" class="group-to-cart-btn" (click)="groupToCart()">
         <ion-icon slot="icon-only" name="cart"></ion-icon>
         Добавить группу в корзину
       </ion-button>

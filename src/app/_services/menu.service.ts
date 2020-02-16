@@ -22,7 +22,6 @@ export class MenuService {
   }
   show() {
     this.isVisibleMobile.next(true);
-    console.log('show');
   }
 
   hide() {

@@ -41,7 +41,6 @@ export class MenuComponent implements OnInit {
 
   showMenu() {
     this.menuService.show();
-    console.log('show');
   }
 
   hideMenu() {

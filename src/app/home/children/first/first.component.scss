@@ -1,8 +1,15 @@
 ion-content {
     --background: transparent;
-    background-size: cover;
-    background-position: center center;
+}
+
+.back {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-size: 110%;
+    background-position: 50% 50%;
     background-image: url('/assets/img/car-grey3.jpg');
+    transition: .5s;
 }
 
 .logo-wrap {
@@ -23,7 +30,7 @@ ion-content {
     .logo {
         width: 15vw;
         height: 15vw;
-        background-image: url('/assets/icon/logo2.svg');
+        background-image: url('/assets/icon/logo3.svg');
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center center;
