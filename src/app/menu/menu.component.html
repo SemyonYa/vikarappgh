@@ -15,11 +15,23 @@
 </div>
 
 <div class="menu-btn-wrap" @menuBtnMobileAnimation *ngIf="isFirst">
-  <ion-button fill="outline" color="primary" size="large" class="menu-btn" (click)="showMenu()">
+  <ion-button fill="solid" color="primary" size="large" class="menu-btn" (click)="showMenu()">
     <ion-icon slot="icon-only" name="menu"></ion-icon>
     меню
   </ion-button>
 </div>
+
+<!-- <div class="first-btns" *ngIf="isFirst" @inOutAnimation>
+  <div class="first-btns-item" [routerLink]="['/catalog']">Каталог</div>
+  <div class="first-btns-item" (click)="call()">
+    <ion-icon name="call"></ion-icon>
+    8-800-800-80-80
+  </div>
+  <div class="first-btns-item" (click)="send()">
+    <ion-icon name="mail-open"></ion-icon>
+    info@vikar-auto.ru
+  </div>
+</div> -->
 
 <div class="menu-mobile-btn-wrap" @menuAnimation *ngIf="!isFirst">
   <ion-icon size="large" slot="icon-only" name="menu" color="primary" (click)="showMenu()"></ion-icon>

@@ -9,6 +9,7 @@ import { CatalogPage } from './catalog.page';
 import { CategoryComponent } from './category/category.component';
 import { CategoryMenuComponent } from './category-menu/category-menu.component';
 import { CatalogRoutingModule } from './catalog-routing.module';
+import { CategoryInfoComponent } from './category-info/category-info.component';
 
 // const routes: Routes = [
 //   {
@@ -28,7 +29,11 @@ import { CatalogRoutingModule } from './catalog-routing.module';
   declarations: [
     CatalogPage,
     CategoryComponent,
-    CategoryMenuComponent
+    CategoryMenuComponent,
+    CategoryInfoComponent
+  ],
+  entryComponents: [
+    CategoryInfoComponent
   ]
 })
 export class CatalogPageModule { }

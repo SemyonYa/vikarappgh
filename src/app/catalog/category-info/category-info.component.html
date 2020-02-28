@@ -1,0 +1,10 @@
+<div class="wrap">
+  <!-- <img [src]="category.img"> -->
+  <h2>{{category.name}}</h2>
+  <h4 (click)="showPhotos()">Посмотреть фото</h4>
+  <p>{{category.description}}</p>
+  <div class="images">
+    <div class="images-item" [ngStyle]="{backgroundImage: 'url(' + category.img + ')'}" *ngFor="let item of [1,2,3]" (click)="showPhotos()"></div>
+  </div>
+</div>
+<ion-icon color="secondary" size="large" name="close" class="close" (click)="close()"></ion-icon>

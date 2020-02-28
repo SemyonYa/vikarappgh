@@ -1,22 +1,26 @@
 import { trigger, state, style, animate, transition } from '@angular/animations';
 
-export const inAnimation =
-    trigger('inAnimation', [
+export const inOutAnimation =
+    trigger('inOutAnimation', [
         transition(':enter', [
             style({
-                transform: 'translateX(40px)',
+                transform: 'translateY(40px)',
                 opacity: 0
             }),
-            animate('0.2s',
+            animate('0.5s',
                 style({
                     transform: '*',
                     opacity: 1
                 }))
         ]),
         transition(':leave', [
-            style({ opacity: '*' }),
-            animate('0s',
+            style({
+                transform: '*',
+                opacity: '*'
+            }),
+            animate('0.5s',
                 style({
+                    transform: 'translateY(40px)',
                     opacity: 0
                 }))
         ])

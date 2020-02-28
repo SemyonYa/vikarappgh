@@ -16,6 +16,7 @@ export class InstallingItemComponent implements OnInit {
   id: number;
   installItem: InstallItem;
   // cartItems: ICartItem[] = [];
+  // tslint:disable-next-line:max-line-length
   constructor(private dataService: DataService, private activatedRoute: ActivatedRoute, private alertController: AlertController, private cartService: CartService) { }
 
   ngOnInit() {
@@ -24,7 +25,7 @@ export class InstallingItemComponent implements OnInit {
       .subscribe(
         (data: InstallItem[]) => {
           this.installItem = data.find(ii => ii.id == this.id);
-          console.log("TCL: InstallingItemComponent -> ngOnInit -> this.installItem", this.installItem)
+          console.log('TCL: InstallingItemComponent -> ngOnInit -> this.installItem', this.installItem);
         }
       );
   }

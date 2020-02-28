@@ -5,6 +5,8 @@ import { CartService } from 'src/app/_services/cart.service';
 import { Good } from 'src/app/_models/good';
 import { ActivatedRoute } from '@angular/router';
 import { inAnimation } from 'src/app/_animations/in.animation';
+import { ModalController } from '@ionic/angular';
+import { CategoryInfoComponent } from '../category-info/category-info.component';
 
 @Component({
   selector: 'app-category',
@@ -14,7 +16,8 @@ import { inAnimation } from 'src/app/_animations/in.animation';
 })
 export class CategoryComponent implements OnInit {
   category: Category;
-  constructor(private dataService: DataService, private cartService: CartService, private activatedRoute: ActivatedRoute) { }
+  // tslint:disable-next-line:max-line-length
+  constructor(private dataService: DataService, private cartService: CartService, private activatedRoute: ActivatedRoute, private modalController: ModalController) { }
 
   ngOnInit() {
     const categoryN = this.activatedRoute.snapshot.params.categoryId;
@@ -45,5 +48,13 @@ export class CategoryComponent implements OnInit {
   plus(good: Good) {
     good.increment();
     this.cartService.plus(good.id);
+  }
+
+  async showInfo(category: Category) {
+    const modal = this.modalController.create({
+      component: CategoryInfoComponent,
+      componentProps: { category }
+    });
+    return (await modal).present();
   }
 }

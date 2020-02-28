@@ -11,9 +11,9 @@ import { ActivatedRoute } from '@angular/router';
 export class CategoryMenuComponent implements OnInit {
   categories: Category[] = [];
   icons: string[] = [
-    "vibro.svg",
-    "noise.svg",
-    "noise.svg",
+    'vibro.svg',
+    'noise.svg',
+    'noise.svg',
   ];
   constructor(private dataService: DataService, private activatedRoute: ActivatedRoute) { }
 

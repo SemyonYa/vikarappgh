@@ -1,72 +1,76 @@
-<ion-content *ngIf="category;else loading" @inAnimation>
-    <div class="list">
-      <div class="category">
-        <h3 class="text-center">{{category.name}}</h3>
-        <p class="category-img text-center" text-center>
-          <img src="{{category.img}}" alt="" *ngIf="category.img">
-        </p>
-        <div class="good-group" *ngFor="let goodGroup of category?.goodGroups">
-          <h4>{{goodGroup.name}}</h4>
-          <hr>
-          <table *ngIf="category.n !== 3">
-            <thead>
-              <tr>
-                <td>Наименование</td>
-                <td>{{goodGroup.thicknessOf}}</td>
-                <td>Размер листа</td>
-                <td>Площадь листа</td>
-                <td>Цена</td>
-                <td>
-                  <ion-icon name="cart"></ion-icon>
-                </td>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let good of goodGroup.goods">
-                <td>{{good.name}}</td>
-                <td>{{good.thickness}}</td>
-                <td>{{good.size}}</td>
-                <td>{{good.square}}</td>
-                <td>{{good.price}}</td>
-                <td>
-                  <div class="price-tocart">
-                    <div class="price-tocart-minus" data-id="{{good.id}}" (click)="minus(good)">-</div>
-                    <div class="price-tocart-value">{{good.quantity}}</div>
-                    <div class="price-tocart-plus" data-id="{{good.id}}" (click)="plus(good)">+</div>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <table *ngIf="category.n === 3">
-            <thead>
-              <tr>
-                <td>Наименование</td>
-                <td>Ширина рулона</td>
-                <td>Длина рулона</td>
-                <td>Цена</td>
-                <td>В корзину</td>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let good of goodGroup.goods">
-                <td>{{good.name}}</td>
-                <td>{{good.width}}</td>
-                <td>{{good.length}}</td>
-                <td>{{good.price}}</td>
-                <td>
-                  <div class="price-tocart">
-                    <div class="price-tocart-minus" data-id="{{good.id}}" (click)="minus(good)">-</div>
-                    <div class="price-tocart-value">{{good.quantity}}</div>
-                    <div class="price-tocart-plus" data-id="{{good.id}}" (click)="plus(good)">+</div>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+<ion-content *ngIf="category;else loading">
+  <div class="list">
+    <div class="category">
+      <h3>
+        <span>{{category.name}}</span>
+        <span class="more"></span>
+        <ion-icon name="information-circle-outline" color="primary" (click)="showInfo(category)"></ion-icon>
+      </h3>
+      <!-- <p class="category-img text-center" text-center>
+        <img src="{{category.img}}" alt="" *ngIf="category.img">
+      </p> -->
+      <div class="good-group" *ngFor="let goodGroup of category?.goodGroups">
+        <h4>{{goodGroup.name}}</h4>
+        <hr>
+        <table *ngIf="category.n !== 3">
+          <thead>
+            <tr>
+              <td>Наименование</td>
+              <td>{{goodGroup.thicknessOf}}</td>
+              <td>Размер листа</td>
+              <td>Площадь листа</td>
+              <td>Цена</td>
+              <td>
+                <ion-icon name="cart"></ion-icon>
+              </td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let good of goodGroup.goods">
+              <td>{{good.name}}</td>
+              <td>{{good.thickness}}</td>
+              <td>{{good.size}}</td>
+              <td>{{good.square}}</td>
+              <td>{{good.price}}</td>
+              <td>
+                <div class="price-tocart">
+                  <div class="price-tocart-minus" data-id="{{good.id}}" (click)="minus(good)">-</div>
+                  <div class="price-tocart-value">{{good.quantity}}</div>
+                  <div class="price-tocart-plus" data-id="{{good.id}}" (click)="plus(good)">+</div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <table *ngIf="category.n === 3">
+          <thead>
+            <tr>
+              <td>Наименование</td>
+              <td>Ширина рулона</td>
+              <td>Длина рулона</td>
+              <td>Цена</td>
+              <td>В корзину</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let good of goodGroup.goods">
+              <td>{{good.name}}</td>
+              <td>{{good.width}}</td>
+              <td>{{good.length}}</td>
+              <td>{{good.price}}</td>
+              <td>
+                <div class="price-tocart">
+                  <div class="price-tocart-minus" data-id="{{good.id}}" (click)="minus(good)">-</div>
+                  <div class="price-tocart-value">{{good.quantity}}</div>
+                  <div class="price-tocart-plus" data-id="{{good.id}}" (click)="plus(good)">+</div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
+  </div>
 </ion-content>
 
 <ng-template #loading>

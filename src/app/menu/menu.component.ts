@@ -6,12 +6,13 @@ import { BehaviorSubject } from 'rxjs';
 import { ICartItem } from '../_models/i-cart-item';
 import { CartService } from '../_services/cart.service';
 import { inFromLeftAnimation } from '../_animations/inFromLeft.animation';
+import { inOutAnimation } from '../_animations/in-out.animation';
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.scss'],
-  animations: [menuAnimation, menuBtnMobileAnimation, menuMobileAnimation, inFromLeftAnimation]
+  animations: [menuAnimation, menuBtnMobileAnimation, menuMobileAnimation, inFromLeftAnimation, inOutAnimation]
 })
 export class MenuComponent implements OnInit {
   menu: Set<IMenuItem> = new Set<IMenuItem>();
@@ -47,4 +48,11 @@ export class MenuComponent implements OnInit {
     this.menuService.hide();
   }
 
+  call() {
+    window.location.href = 'tel:88008008008';
+  }
+
+  send() {
+    window.location.href = 'mailto:info@vikar-auto.ru';
+  }
 }

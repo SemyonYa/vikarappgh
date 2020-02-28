@@ -3,6 +3,13 @@
     --price-btn-size: 30px;
 }
 
+@media (max-width: 767px) {
+    * {
+        --price-btn-size: 18px;
+        --price-btn-font-size: 10px;
+    }
+}
+
 :root {
     /**  CUSTOM  **/
     // --ion-font-family: 'Exo 2', sans-serif;
@@ -11,6 +18,7 @@
     // --ion-font-family: 'Didact Gothic', sans-serif;
     // --ion-font-family: 'Anonymous Pro', monospace;
     --ion-font-family: 'Kurale', serif;
+    // --ion-font-family-menu: 'Yeseva One', cursive;
 
     // --ion-font-family: 'Cormorant', serif;
     // --ion-font-family: 'Cormorant Infant', serif;
@@ -37,7 +45,7 @@
         border-radius: 4px;
         background-color: rgba(var(--ion-color-primary-rgb), .85);
         color: var(--ion-color-primary-contrast);
-        font-size: 12px;
+        font-size: var(--price-btn-font-size);
         font-weight: 600;
         cursor: pointer;
         transition: 300ms;
@@ -53,7 +61,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 14px;
+        font-size: var(--price-btn-font-size);
         font-weight: 600;
     }
 }
